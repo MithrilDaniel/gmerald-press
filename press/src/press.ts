@@ -322,7 +322,16 @@ export async function runPress(): Promise<void> {
 
   // 6. Write the record the site reads.
   const remaining = await bal(me, cfg.gme);
-  const slicesLeft = slice > 0n ? Number((remaining + slice - 1n) / slice) : 0;
+  // Slices left: on the spread, the ticks left in the window; otherwise remaining / slice.
+  let slicesLeft = slice > 0n ? Number((remaining + slice - 1n) / slice) : 0;
+  let nextSlice = slice;
+  if (cfg.pressSpreadHours > 0) {
+    const all = readLedger().presses; const idx = all.map((p) => p.kind ?? 'press').lastIndexOf('press');
+    const done = idx >= 0 ? all.slice(idx + 1).filter((p) => p.kind === 'snack').length : 0;
+    const total = Math.max(1, Math.round((cfg.pressSpreadHours * 60) / cfg.cadenceMin));
+    slicesLeft = remaining >= minPress ? Math.max(1, total - done) : 0;
+    nextSlice = slicesLeft > 0 ? remaining / BigInt(slicesLeft) : 0n;
+  }
   const entry = appendPress({
     kind: 'snack',
     note,
@@ -353,11 +362,11 @@ export async function runPress(): Promise<void> {
     curveOut = { raisedGme: fmt(raised, 2), thresholdGme: fmt(threshold, 0), pct: threshold > 0n ? Math.min(100, Number((raised * 10000n) / threshold) / 100) : 0 };
   }
   writeStats({
-    presses: countKind('press'), snacks: countKind('snack'), queuedGme: formatUnits(remaining, 18),
+    presses: countKind('press'), snacks: countKind('snack'), queuedGme: formatUnits(remaining, 18), sliceGme: fmt(nextSlice, 2), slicesLeft,
     burnedPct: burnedPct.toFixed(2),
     stashGme: stashGme.toFixed(2),
     gmeSunk: gmeSunk.toFixed(2),
-    status: remaining >= minPress ? `snacking. ${slicesLeft} slice${slicesLeft === 1 ? '' : 's'} of ${cfg.pressSliceGme} gme to go` : 'napping between claims',
+    status: remaining >= minPress ? `snacking. ${slicesLeft} slice${slicesLeft === 1 ? '' : 's'} of ~${fmt(nextSlice, 0)} gme to go` : 'napping between claims',
     updatedAt: entry.ts,
     checkedAt: entry.ts,
     peg: pegOut,

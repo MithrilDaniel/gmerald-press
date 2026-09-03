@@ -37,6 +37,8 @@ export type Stats = {
   cadenceMin?: number;
   snacks?: number;
   queuedGme?: string;
+  sliceGme?: string;
+  slicesLeft?: number;
 };
 
 const ledgerPath = () => join(cfg.siteDir, 'press-ledger.json');
