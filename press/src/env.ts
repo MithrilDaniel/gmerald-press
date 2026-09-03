@@ -63,6 +63,8 @@ export const cfg = {
   pressFractionBps: BigInt(opt('PRESS_FRACTION_BPS', '1667')),
   // Slice mode: press a fixed amount of GME per run (the 15-minute TWAP). 0 = fraction mode above.
   pressSliceGme: opt('PRESS_SLICE_GME', '0'),
+  // The burn wallet's address (public), so read-only jobs can report the queue without the key.
+  pressWallet: opt('PRESS_WALLET_ADDRESS', '0x3f6f2e902bE8736c0D59aBA82d5975F395b9B825') as `0x${string}`,
   // How often the cron fires, for the site's copy and countdown.
   cadenceMin: Number(opt('CADENCE_MIN', '15')),
   // When nothing is pressed, refresh the site's numbers at most this often (every commit is a deploy).

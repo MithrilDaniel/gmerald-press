@@ -36,10 +36,13 @@ export async function runLog(): Promise<void> {
   } else {
     stashGme = totals().stashedGme;
   }
+  const queued = await pub.readContract({ address: cfg.gme, abi: erc20Abi, functionName: 'balanceOf', args: [cfg.pressWallet] });
+  const slice = Number(cfg.pressSliceGme) || 20, slicesLeft = Math.ceil(Number(formatUnits(queued, 18)) / slice);
+  const status = Number(formatUnits(queued, 18)) >= Number(cfg.minPressGme) ? `snacking. ${slicesLeft} slice${slicesLeft === 1 ? '' : 's'} of ${slice} gme to go` : 'napping between claims';
   writeStats({
     presses: totals().press, snacks: totals().snack, burnedPct, stashGme: stashGme.toFixed(2),
     gmeSunk: (stashGme + burnGmeTotal() + Number(cfg.gradSeedGme)).toFixed(2),
-    status: 'pressing every 4 hours', updatedAt: entry.ts, checkedAt: entry.ts,
+    status, queuedGme: formatUnits(queued, 18), updatedAt: entry.ts, checkedAt: entry.ts,
     cadenceMin: cfg.cadenceMin,
     peg: { status: peg.status, premiumBps: peg.premiumBps, tokenUsd: peg.tokenUsd, fairUsd: peg.fairUsd, note: peg.note },
   });
