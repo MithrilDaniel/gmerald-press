@@ -158,7 +158,11 @@ export async function runPress(): Promise<void> {
     else if (market.vsHighBps === 0 && h1 >= cfg.dipBandBps / 100) { mult = 0n; why = `half: a fresh high, up ${h1.toFixed(1)}% in the hour`; }
   }
   if (market) console.log(`[press] market: ${market.priceGme.toExponential(3)} gme per token, ${(market.vsHighBps / 100).toFixed(1)}% vs its recent high${why ? ` → ${why}` : ''}`);
-  const base = parseUnits(cfg.pressSliceGme, 18);
+  let base = parseUnits(cfg.pressSliceGme, 18);
+  if (cfg.pressSliceUsd > 0 && peg.tokenUsd && peg.tokenUsd > 0) {
+    const floor = parseUnits((cfg.pressSliceUsd / peg.tokenUsd).toFixed(6), 18);
+    if (floor > base) { base = floor; console.log(`[press] slice floor: $${cfg.pressSliceUsd} = ${fmt(floor, 2)} GME at $${peg.tokenUsd.toFixed(2)}`); }
+  }
   const slice = mult === 2n ? base * 2n : mult === 0n ? base / 2n : base;
   let gmeBal = slice > 0n ? (floatBal < slice ? floatBal : slice) : (floatBal * cfg.pressFractionBps) / cfg.BPS;
   if (slice > 0n && floatBal > gmeBal && floatBal - gmeBal < slice / 2n) gmeBal = floatBal;

@@ -65,6 +65,8 @@ export const cfg = {
   pressFractionBps: BigInt(opt('PRESS_FRACTION_BPS', '1667')),
   // Slice mode: press a fixed amount of GME per run (the 15-minute TWAP). 0 = fraction mode above.
   pressSliceGme: opt('PRESS_SLICE_GME', '0'),
+  // A dollar floor per slice, converted from the live GME price each run (0 = off).
+  pressSliceUsd: Number(opt('PRESS_SLICE_USD', '0')),
   // Dip mode: the slice doubles when price sits more than DIP_BAND_BPS under the day's
   // average, halves when it sits that far above. Coarse on purpose (see README).
   dipMode: opt('DIP_MODE', '1') === '1',

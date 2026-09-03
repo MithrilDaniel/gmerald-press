@@ -47,6 +47,7 @@ jobs:
           OPS_BPS: ${{ vars.OPS_BPS }}
           PRESS_FRACTION_BPS: ${{ vars.PRESS_FRACTION_BPS }}
           PRESS_SLICE_GME: ${{ vars.PRESS_SLICE_GME }}
+          PRESS_SLICE_USD: ${{ vars.PRESS_SLICE_USD }}
           CADENCE_MIN: ${{ vars.CADENCE_MIN }}
           REFRESH_MIN: ${{ vars.REFRESH_MIN }}
           DIP_MODE: ${{ vars.DIP_MODE }}
