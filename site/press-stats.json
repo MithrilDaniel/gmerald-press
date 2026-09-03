@@ -1,19 +1,19 @@
 {
  "presses": 5,
- "snacks": 41,
- "queuedGme": "92.95445930263988196",
- "burnedPct": "13.03",
+ "snacks": 42,
+ "queuedGme": "77.4620494188665683",
+ "burnedPct": "13.07",
  "stashGme": "1771.52",
- "gmeSunk": "3889.20",
- "status": "snacking. 6 slices of 20 gme to go",
- "updatedAt": "2026-09-03T15:30:27.848Z",
- "checkedAt": "2026-09-03T15:30:27.848Z",
+ "gmeSunk": "3904.70",
+ "status": "snacking. 5 slices of 20 gme to go",
+ "updatedAt": "2026-09-03T15:45:32.125Z",
+ "checkedAt": "2026-09-03T15:45:32.125Z",
  "peg": {
-  "status": "at-or-above",
-  "premiumBps": 44,
-  "tokenUsd": 19.21,
-  "fairUsd": 19.12505,
-  "note": "token $19.21 vs fair $19.13 (+0.44%)"
+  "status": "below",
+  "premiumBps": -3,
+  "tokenUsd": 19.23,
+  "fairUsd": 19.2349,
+  "note": "token $19.23 vs fair $19.23 (-0.03%)"
  },
  "cadenceMin": 15
 }
