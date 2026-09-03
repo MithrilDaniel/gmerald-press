@@ -171,7 +171,9 @@ export async function runPress(): Promise<void> {
     const lastPress = lastPressIdx >= 0 ? all[lastPressIdx] : undefined;
     const done = lastPress ? all.slice(lastPressIdx + 1).filter((p) => p.kind === 'snack').length : 0;
     const total = Math.max(1, Math.round((cfg.pressSpreadHours * 60) / cfg.cadenceMin));
-    const left = Math.max(1, total - done);
+    // A batch that already used its window (or a press the scanner has not seen yet) is treated
+    // as a fresh batch, never as "one tick left".
+    const left = done >= total ? total : total - done;
     slice = floatBal / BigInt(left);
     console.log(`[press] spread: ${cfg.pressSpreadHours}h = ${total} ticks, ${done} snacks done since the last press, ${left} left → ${fmt(slice, 2)} GME each`);
   }
