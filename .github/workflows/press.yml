@@ -49,6 +49,10 @@ jobs:
           PRESS_SLICE_GME: ${{ vars.PRESS_SLICE_GME }}
           CADENCE_MIN: ${{ vars.CADENCE_MIN }}
           REFRESH_MIN: ${{ vars.REFRESH_MIN }}
+          DIP_MODE: ${{ vars.DIP_MODE }}
+          DIP_BAND_BPS: ${{ vars.DIP_BAND_BPS }}
+          QUOTE_SANITY_BPS: ${{ vars.QUOTE_SANITY_BPS }}
+          PRESS_WALLET_ADDRESS: ${{ vars.PRESS_WALLET_ADDRESS }}
       - name: commit the terminal's numbers
         run: |
           if ! git diff --quiet site/; then
