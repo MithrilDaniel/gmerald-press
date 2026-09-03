@@ -78,3 +78,21 @@ Wallet app on the phone: (1) top up / claim GME, (2) send 45% to the stash addre
 (3) swap 45% GME -> $GMERALD on pons and burn it (send to the token's `burn`, or
 transfer to `0x...dEaD` if the UI has no burn), (4) 10% to ops if the peg reads at/above
 fair, (5) paste both hashes into the telegram template. Ten minutes.
+
+## Dip mode
+
+Every run reads the pool from dexscreener (independent of our RPC): the price now, and the
+recent high reconstructed from the change points it publishes (1h, 6h, 24h ago). Price
+10%+ (`DIP_BAND_BPS`) **under** that high: the slice doubles. A fresh high with the last hour
+up 10%+: the slice halves. Otherwise the normal `PRESS_SLICE_GME`. Coarse on purpose: a rule
+that reacts to every candle gets front-run the moment someone reads this file. `DIP_MODE=0`
+turns it off. The reason is written into the ledger row and the post.
+
+The same market read guards the swap: if our RPC's quote disagrees with the market by more
+than `QUOTE_SANITY_BPS` (15%), the slice is held rather than executed against a bad number.
+
+## What the key can and cannot do
+
+The token and the stash address are pinned in code; a changed repository variable makes the
+bot refuse to run. In burn-only mode the bot makes four kinds of calls: `approve`, a swap on
+Uniswap's canonical router, and `burn`. There is no transfer to any address in the code path.

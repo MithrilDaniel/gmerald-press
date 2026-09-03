@@ -151,10 +151,13 @@ export async function runPress(): Promise<void> {
   const market = await readMarket(poolId);
   let mult = 1n, why = '';
   if (cfg.dipMode && market) {
-    if (market.vsDayAvgBps <= -cfg.dipBandBps) { mult = 2n; why = `double: price ${(-market.vsDayAvgBps / 100).toFixed(1)}% under the day's average`; }
-    else if (market.vsDayAvgBps >= cfg.dipBandBps) { mult = 0n; why = `half: price ${(market.vsDayAvgBps / 100).toFixed(1)}% over the day's average`; }
+    // vsHighBps is 0 at a fresh high and negative below it. A dip: 10%+ under the recent
+    // high → double. Hot: a fresh high with the last hour up 10%+ → half.
+    const h1 = market.h1;
+    if (market.vsHighBps <= -cfg.dipBandBps) { mult = 2n; why = `double: price ${(-market.vsHighBps / 100).toFixed(1)}% under its recent high`; }
+    else if (market.vsHighBps === 0 && h1 >= cfg.dipBandBps / 100) { mult = 0n; why = `half: a fresh high, up ${h1.toFixed(1)}% in the hour`; }
   }
-  if (market) console.log(`[press] market: ${market.priceGme.toExponential(3)} gme per token, ${market.vsDayAvgBps >= 0 ? '+' : ''}${(market.vsDayAvgBps / 100).toFixed(1)}% vs the day's average${why ? ` → ${why}` : ''}`);
+  if (market) console.log(`[press] market: ${market.priceGme.toExponential(3)} gme per token, ${(market.vsHighBps / 100).toFixed(1)}% vs its recent high${why ? ` → ${why}` : ''}`);
   const base = parseUnits(cfg.pressSliceGme, 18);
   const slice = mult === 2n ? base * 2n : mult === 0n ? base / 2n : base;
   let gmeBal = slice > 0n ? (floatBal < slice ? floatBal : slice) : (floatBal * cfg.pressFractionBps) / cfg.BPS;
