@@ -30,7 +30,9 @@ export const cfg = {
   token: (() => { const KNOWN = '0x3E4E7bbee9A7e5fBEdABeEa66313C8f636999458'; const v = opt('TOKEN_ADDRESS', KNOWN);
     if (v.toLowerCase() !== KNOWN.toLowerCase()) throw new Error(`TOKEN_ADDRESS ${v} is not $GMERALD (${KNOWN}); refusing to run`); return KNOWN as `0x${string}`; })(),
   escrow: addr('ESCROW_ADDRESS'),
-  stash: addr('STASH_ADDRESS'),
+  // Pinned like the token: a changed variable must never point a stash transfer elsewhere.
+  stash: (() => { const KNOWN = '0x259c3Fc3Dad6B8e418b44c238C7Be65284244e4A'; const v = opt('STASH_ADDRESS', KNOWN);
+    if (v.toLowerCase() !== KNOWN.toLowerCase()) throw new Error(`STASH_ADDRESS ${v} is not the stash (${KNOWN}); refusing to run`); return KNOWN as `0x${string}`; })(),
   ops: addr('OPS_ADDRESS'),
 
   // The petty-cash key. NEVER the creator-fee-recipient wallet: if this key
@@ -63,6 +65,12 @@ export const cfg = {
   pressFractionBps: BigInt(opt('PRESS_FRACTION_BPS', '1667')),
   // Slice mode: press a fixed amount of GME per run (the 15-minute TWAP). 0 = fraction mode above.
   pressSliceGme: opt('PRESS_SLICE_GME', '0'),
+  // Dip mode: the slice doubles when price sits more than DIP_BAND_BPS under the day's
+  // average, halves when it sits that far above. Coarse on purpose (see README).
+  dipMode: opt('DIP_MODE', '1') === '1',
+  dipBandBps: Number(opt('DIP_BAND_BPS', '1000')),
+  // A quote that disagrees with the market by more than this is held, not executed.
+  quoteSanityBps: Number(opt('QUOTE_SANITY_BPS', '1500')),
   // The burn wallet's address (public), so read-only jobs can report the queue without the key.
   pressWallet: opt('PRESS_WALLET_ADDRESS', '0x3f6f2e902bE8736c0D59aBA82d5975F395b9B825') as `0x${string}`,
   // How often the cron fires, for the site's copy and countdown.
@@ -82,4 +90,4 @@ export const cfg = {
 };
 
 // Launched enough to press: the token exists, and the stash exists unless this wallet never stashes.
-export const launched = (): boolean => cfg.stash !== '' || cfg.stashBps === 0n; // the token is pinned; only the stash can be missing
+export const launched = (): boolean => true; // token and stash are pinned in code

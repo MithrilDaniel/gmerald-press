@@ -8,6 +8,9 @@ import { erc20Abi, factoryAbi, escrowAbi, curveAbi } from './abis.js';
 import { quoteBuy } from './quote.js';
 import { quoteGmeToToken, swapGmeToToken } from './v4.js';
 import { checkPeg } from './peg.js';
+import { readMarket } from './market.js';
+import { keccak256, encodeAbiParameters } from 'viem';
+import { poolKey } from './v4.js';
 import { appendPress, readLedger, writeLedger, writeStats, burnGmeTotal, statsPath, countKind, hasTx } from './ledger.js';
 import { parseAbiItem } from 'viem';
 import { readFileSync } from 'node:fs';
@@ -142,7 +145,18 @@ export async function runPress(): Promise<void> {
   // weekly top-up drips into the pool over days instead of landing in one fill.
   // Slice mode (the 15-minute TWAP): a fixed amount per run, and the tail is
   // folded into the last slice rather than left as dust.
-  const slice = parseUnits(cfg.pressSliceGme, 18);
+  // Dip mode: read the market once (independent of our RPC) and scale the slice.
+  const pk = poolKey(token);
+  const poolId = keccak256(encodeAbiParameters([{ type: 'address' }, { type: 'address' }, { type: 'uint24' }, { type: 'int24' }, { type: 'address' }], [pk.currency0, pk.currency1, pk.fee, pk.tickSpacing, pk.hooks]));
+  const market = await readMarket(poolId);
+  let mult = 1n, why = '';
+  if (cfg.dipMode && market) {
+    if (market.vsDayAvgBps <= -cfg.dipBandBps) { mult = 2n; why = `double: price ${(-market.vsDayAvgBps / 100).toFixed(1)}% under the day's average`; }
+    else if (market.vsDayAvgBps >= cfg.dipBandBps) { mult = 0n; why = `half: price ${(market.vsDayAvgBps / 100).toFixed(1)}% over the day's average`; }
+  }
+  if (market) console.log(`[press] market: ${market.priceGme.toExponential(3)} gme per token, ${market.vsDayAvgBps >= 0 ? '+' : ''}${(market.vsDayAvgBps / 100).toFixed(1)}% vs the day's average${why ? ` → ${why}` : ''}`);
+  const base = parseUnits(cfg.pressSliceGme, 18);
+  const slice = mult === 2n ? base * 2n : mult === 0n ? base / 2n : base;
   let gmeBal = slice > 0n ? (floatBal < slice ? floatBal : slice) : (floatBal * cfg.pressFractionBps) / cfg.BPS;
   if (slice > 0n && floatBal > gmeBal && floatBal - gmeBal < slice / 2n) gmeBal = floatBal;
   const minPress = parseUnits(cfg.minPressGme, 18);
@@ -179,7 +193,7 @@ export async function runPress(): Promise<void> {
     return;
   }
 
-  let note = 'pressed';
+  let note = why ? `pressed · ${why}` : 'pressed';
   let burnedGmerald = '0';
   let burnGmeSpent = '0';
   let stashedGme = '0';
@@ -228,6 +242,13 @@ export async function runPress(): Promise<void> {
     } else if (phase === 2 && cfg.v4SwapEnabled) {
       const quoted = await quoteGmeToToken(token, burnAmt);
       const minOut = (quoted * (cfg.BPS - cfg.slippageBps)) / cfg.BPS;
+      // Sanity: the quote comes from our RPC; the market read comes from dexscreener. If they
+      // disagree by more than QUOTE_SANITY_BPS, something is lying and the slice is held.
+      if (market && market.priceGme > 0) {
+        const expected = Number(formatUnits(burnAmt, 18)) / market.priceGme;
+        const gapBps = Math.round((Number(formatUnits(quoted, 18)) / expected - 1) * 10000);
+        if (Math.abs(gapBps) > cfg.quoteSanityBps) throw new Error(`quote ${fmt(quoted, 0)} vs market ${expected.toFixed(0)} $GMERALD (${gapBps} bps apart); holding this slice`);
+      }
       if (cfg.dry) {
         console.log(`[press] dry: would swap ${fmt(burnAmt, 4)} GME -> ~${fmt(quoted, 0)} $GMERALD on the v4 pool and burn it`);
       } else {
@@ -330,7 +351,7 @@ export async function runPress(): Promise<void> {
     burnTx ? `burned ${burnedGmerald} $GMERALD${Number(burnGmeSpent) > 0 ? ` with ${Number(burnGmeSpent).toFixed(2)} gme` : ''} — ${cfg.explorer}/tx/${burnTx}` : null,
     stashTx ? `stashed ${entry.stashedGme} GME — ${cfg.explorer}/tx/${stashTx}` : null,
     opsTx ? `ops moved ${entry.opsMovedGme} GME (peg ${entry.pegStatus})` : null,
-    note !== 'pressed' ? note : null,
+    note !== 'pressed' ? note.replace('pressed · ', '') : null,
     `burned: ${burnedPct.toFixed(2)}% of supply · gme sunk: ${gmeSunk.toFixed(2)} · ${remaining >= minPress ? `${slicesLeft} more to go, one every ${cfg.cadenceMin} min` : 'that was the last one until the next claim'}`,
   ].filter(Boolean);
   await post(lines.join('\n'));
