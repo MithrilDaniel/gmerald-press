@@ -1,0 +1,44 @@
+name: buys
+
+on:
+  schedule:
+    - cron: "*/5 * * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: buys
+  cancel-in-progress: false
+
+jobs:
+  buys:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+        with:
+          node-version: 22
+      - run: npm ci --no-audit --no-fund
+        working-directory: press
+      - name: fetch the last block from the state branch
+        run: |
+          git fetch -q origin state 2>/dev/null && git show origin/state:buys-state.json > press/buys-state.json || echo "no state yet"
+      - run: npx tsx src/index.ts buys
+        working-directory: press
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ vars.TELEGRAM_CHAT_ID }}
+          TOKEN_ADDRESS: ${{ vars.TOKEN_ADDRESS }}
+          MIN_BUY_USD: ${{ vars.MIN_BUY_USD }}
+          BUY_STEP_USD: ${{ vars.BUY_STEP_USD }}
+      - name: remember the last block (state branch, never a deploy)
+        run: |
+          [ -f press/buys-state.json ] || exit 0
+          cp press/buys-state.json /tmp/buys-state.json
+          git config user.name "Daniel Volkov"; git config user.email "daniel@mithrilslabs.com"
+          if git fetch -q origin state 2>/dev/null; then git checkout -q -B state origin/state; else git checkout -q --orphan state; git rm -rfq . >/dev/null 2>&1 || true; fi
+          cp /tmp/buys-state.json buys-state.json
+          git add buys-state.json
+          git diff --cached --quiet || { git commit -qm "buys: last block"; git push -q origin state; }

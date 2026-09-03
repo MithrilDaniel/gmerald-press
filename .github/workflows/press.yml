@@ -1,0 +1,64 @@
+name: press
+
+on:
+  schedule:
+    - cron: "3,18,33,48 * * * *" # the 15-minute press, off the crowded :00/:15/:30/:45 marks (GH deprioritises those)
+  workflow_dispatch:
+    inputs:
+      job:
+        description: which job
+        type: choice
+        default: press
+        options: [press, dry, doctor, tgcheck]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: press
+  cancel-in-progress: false
+
+jobs:
+  press:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+        with:
+          node-version: 22
+      - name: install
+        run: npm ci --no-audit --no-fund
+        working-directory: press
+      - name: run
+        run: npx tsx src/index.ts "${{ inputs.job || 'press' }}"
+        working-directory: press
+        env:
+          PRESS_WALLET_KEY: ${{ secrets.PRESS_WALLET_KEY }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ vars.TELEGRAM_CHAT_ID }}
+          TOKEN_ADDRESS: ${{ vars.TOKEN_ADDRESS }}
+          STASH_ADDRESS: ${{ vars.STASH_ADDRESS }}
+          OPS_ADDRESS: ${{ vars.OPS_ADDRESS }}
+          ESCROW_ADDRESS: ${{ vars.ESCROW_ADDRESS }}
+          PEG_FEED_ADDRESS: ${{ vars.PEG_FEED_ADDRESS }}
+          GRAD_SEED_GME: ${{ vars.GRAD_SEED_GME }}
+          BURN_BPS: ${{ vars.BURN_BPS }}
+          STASH_BPS: ${{ vars.STASH_BPS }}
+          OPS_BPS: ${{ vars.OPS_BPS }}
+          PRESS_FRACTION_BPS: ${{ vars.PRESS_FRACTION_BPS }}
+          PRESS_SLICE_GME: ${{ vars.PRESS_SLICE_GME }}
+          CADENCE_MIN: ${{ vars.CADENCE_MIN }}
+          REFRESH_MIN: ${{ vars.REFRESH_MIN }}
+      - name: commit the terminal's numbers
+        run: |
+          if ! git diff --quiet site/; then
+            git config user.name "Daniel Volkov"
+            git config user.email "daniel@mithrilslabs.com"
+            git add site/press-ledger.json site/press-ledger-all.json site/press-stats.json
+            git commit -m "press: update terminal numbers"
+            for i in 1 2 3; do
+              git pull --rebase origin main || { git checkout --theirs -- site/press-ledger.json site/press-ledger-all.json site/press-stats.json; git add site/; GIT_EDITOR=true git rebase --continue; }
+              git push && break
+              sleep 5
+            done
+          fi

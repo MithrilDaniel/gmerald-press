@@ -1,0 +1,19 @@
+{
+  "name": "gmerald-press",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "press": "tsx src/index.ts press",
+    "dry": "tsx src/index.ts dry",
+    "doctor": "tsx src/index.ts doctor",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "viem": "^2.21.0"
+  },
+  "devDependencies": {
+    "@types/node": "^26.4.0",
+    "tsx": "^4.19.0",
+    "typescript": "^5.6.0"
+  }
+}
