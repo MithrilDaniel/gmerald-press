@@ -7,13 +7,13 @@
  "gmeSunk": "3346.15",
  "status": "napping between claims",
  "updatedAt": "2026-09-03T07:45:22.807Z",
- "checkedAt": "2026-09-03T09:45:20.545Z",
+ "checkedAt": "2026-09-03T10:45:17.898Z",
  "peg": {
   "status": "at-or-above",
-  "premiumBps": 31,
-  "tokenUsd": 19.071,
+  "premiumBps": 41,
+  "tokenUsd": 19.089,
   "fairUsd": 19.012,
-  "note": "token $19.07 vs fair $19.01 (+0.31%)"
+  "note": "token $19.09 vs fair $19.01 (+0.41%)"
  },
  "cadenceMin": 15
 }
