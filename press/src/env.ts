@@ -67,6 +67,9 @@ export const cfg = {
   pressSliceGme: opt('PRESS_SLICE_GME', '0'),
   // A dollar floor per slice, converted from the live GME price each run (0 = off).
   pressSliceUsd: Number(opt('PRESS_SLICE_USD', '0')),
+  // Spread each batch over N hours: the slice is the remaining float divided by the ticks
+  // left since the last press (0 = off; overrides the fixed slice and the dollar floor).
+  pressSpreadHours: Number(opt('PRESS_SPREAD_HOURS', '0')),
   // Dip mode: the slice doubles when price sits more than DIP_BAND_BPS under the day's
   // average, halves when it sits that far above. Coarse on purpose (see README).
   dipMode: opt('DIP_MODE', '1') === '1',

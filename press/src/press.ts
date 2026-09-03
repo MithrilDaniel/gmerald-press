@@ -163,7 +163,18 @@ export async function runPress(): Promise<void> {
     const floor = parseUnits((cfg.pressSliceUsd / peg.tokenUsd).toFixed(6), 18);
     if (floor > base) { base = floor; console.log(`[press] slice floor: $${cfg.pressSliceUsd} = ${fmt(floor, 2)} GME at $${peg.tokenUsd.toFixed(2)}`); }
   }
-  const slice = mult === 2n ? base * 2n : mult === 0n ? base / 2n : base;
+  let slice = mult === 2n ? base * 2n : mult === 0n ? base / 2n : base;
+  if (cfg.pressSpreadHours > 0 && floatBal > 0n) {
+    // Batch = everything since the last press. Ticks in the window minus snacks already done.
+    const all = readLedger().presses;
+    const lastPressIdx = all.map((p) => p.kind ?? 'press').lastIndexOf('press');
+    const lastPress = lastPressIdx >= 0 ? all[lastPressIdx] : undefined;
+    const done = lastPress ? all.slice(lastPressIdx + 1).filter((p) => p.kind === 'snack').length : 0;
+    const total = Math.max(1, Math.round((cfg.pressSpreadHours * 60) / cfg.cadenceMin));
+    const left = Math.max(1, total - done);
+    slice = floatBal / BigInt(left);
+    console.log(`[press] spread: ${cfg.pressSpreadHours}h = ${total} ticks, ${done} snacks done since the last press, ${left} left → ${fmt(slice, 2)} GME each`);
+  }
   let gmeBal = slice > 0n ? (floatBal < slice ? floatBal : slice) : (floatBal * cfg.pressFractionBps) / cfg.BPS;
   if (slice > 0n && floatBal > gmeBal && floatBal - gmeBal < slice / 2n) gmeBal = floatBal;
   const minPress = parseUnits(cfg.minPressGme, 18);
