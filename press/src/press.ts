@@ -299,6 +299,9 @@ export async function runPress(): Promise<void> {
         if (bought > 0n) {
           burnTx = await waitTx(await w.writeContract({ address: token, abi: erc20Abi, functionName: 'burn', args: [bought] }));
           burnedGmerald = fmt(bought, 0);
+          // Tokens that were already waiting in the wallet (a manual buy, a top-up) go into the
+          // same burn; say so, so the row does not read like a miracle fill.
+          if (heldTok > 0n) note = `${note} · plus ${fmt(heldTok, 0)} that was already waiting in the burn wallet`;
         }
         burnGmeSpent = formatUnits(burnAmt, 18);
       }
