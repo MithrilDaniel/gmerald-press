@@ -49,6 +49,7 @@ jobs:
           PRESS_SLICE_GME: ${{ vars.PRESS_SLICE_GME }}
           PRESS_SLICE_USD: ${{ vars.PRESS_SLICE_USD }}
           PRESS_SPREAD_HOURS: ${{ vars.PRESS_SPREAD_HOURS }}
+          NAP_UNTIL: ${{ vars.NAP_UNTIL }}
           CADENCE_MIN: ${{ vars.CADENCE_MIN }}
           REFRESH_MIN: ${{ vars.REFRESH_MIN }}
           DIP_MODE: ${{ vars.DIP_MODE }}

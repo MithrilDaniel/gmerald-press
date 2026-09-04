@@ -141,6 +141,25 @@ export async function runPress(): Promise<void> {
   // 2. The float. Everything the wallet holds is pressed; held-back ops
   //    slices from earlier presses roll in naturally.
   const floatBal = await bal(me, cfg.gme);
+  if (cfg.napUntil && Date.now() < new Date(cfg.napUntil).getTime()) {
+    // Napping: no slice, no post. Presses are still logged above; the numbers refresh hourly.
+    if (!cfg.dry && mustWrite()) {
+      const [supply, stashBal] = await Promise.all([
+        pub.readContract({ address: token, abi: erc20Abi, functionName: 'totalSupply' }),
+        cfg.stash ? bal(stash, cfg.gme) : Promise.resolve(0n),
+      ]);
+      const stashGme = Number(formatUnits(stashBal, 18));
+      writeStats({
+        presses: countKind('press'), snacks: countKind('snack'), queuedGme: formatUnits(floatBal, 18), sliceGme: '0', slicesLeft: 0,
+        burnedPct: ((Number(TOTAL_SUPPLY - supply) / Number(TOTAL_SUPPLY)) * 100).toFixed(2),
+        stashGme: stashGme.toFixed(2), gmeSunk: (stashGme + burnGmeTotal() + Number(cfg.gradSeedGme)).toFixed(2),
+        status: `napping until ${cfg.napUntil.slice(11, 16)} utc`, updatedAt: readLedger().presses.at(-1)?.ts ?? null,
+        checkedAt: new Date().toISOString(), peg: pegOut, cadenceMin: cfg.cadenceMin,
+      });
+    }
+    console.log(`[press] napping until ${cfg.napUntil} — ${fmt(floatBal, 2)} GME waits in the burn wallet.`);
+    return;
+  }
   // The TWAP: each press works a fixed fraction of the float (default 1/6), so a
   // weekly top-up drips into the pool over days instead of landing in one fill.
   // Slice mode (the 15-minute TWAP): a fixed amount per run, and the tail is

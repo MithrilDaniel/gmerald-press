@@ -70,6 +70,8 @@ export const cfg = {
   // Spread each batch over N hours: the slice is the remaining float divided by the ticks
   // left since the last press (0 = off; overrides the fixed slice and the dollar floor).
   pressSpreadHours: Number(opt('PRESS_SPREAD_HOURS', '0')),
+  // A nap: no snacks until this ISO time (empty = awake). The stash scanner still runs.
+  napUntil: opt('NAP_UNTIL', ''),
   // Dip mode: the slice doubles when price sits more than DIP_BAND_BPS under the day's
   // average, halves when it sits that far above. Coarse on purpose (see README).
   dipMode: opt('DIP_MODE', '1') === '1',
