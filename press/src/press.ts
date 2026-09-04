@@ -46,14 +46,23 @@ async function scanStash(fairUsd?: number): Promise<number> {
     event: parseAbiItem('event Transfer(address indexed from, address indexed to, uint256 value)'),
     args: { to: cfg.stash as `0x${string}` }, fromBlock: from, toBlock: latest,
   });
+  // gme that landed in the burn wallet from the same sender in the same window is part of the press too
+  // (the 45% for snacks, and whatever else the founder fed the machine); the row says how much, not why.
+  const fed = cfg.pressWallet ? await pub.getLogs({
+    address: cfg.gme, event: parseAbiItem('event Transfer(address indexed from, address indexed to, uint256 value)'),
+    args: { to: cfg.pressWallet as `0x${string}` }, fromBlock: from, toBlock: latest,
+  }) : [];
   let added = 0;
   for (const log of logs) {
     const tx = log.transactionHash; const amt = log.args.value as bigint;
     if (amt === 0n || hasTx(tx)) continue;
     const gme = Number(formatUnits(amt, 18));
+    const sender = (log.args.from as string).toLowerCase();
+    const toBurn = fed.filter((f) => (f.args.from as string).toLowerCase() === sender).reduce((t, f) => t + Number(formatUnits(f.args.value as bigint, 18)), 0);
+    const fedNote = toBurn > 0 ? ` ${toBurn.toFixed(2)} gme went to the burn wallet in the same press, for snacks.` : '';
     const entry = appendPress({
       kind: 'press',
-      note: `press: ${gme.toFixed(2)} gme claimed from fees and stashed. never sold, never distributed.`,
+      note: `press: ${gme.toFixed(2)} gme claimed from fees and stashed. never sold, never distributed.${fedNote}`,
       burnedGmerald: '0', burnGmeSpent: '0', stashedGme: gme.toFixed(4), opsMovedGme: '0',
       pegStatus: 'n/a', stashTx: tx, gmeUsd: fairUsd && fairUsd > 0 ? fairUsd : undefined,
     });
