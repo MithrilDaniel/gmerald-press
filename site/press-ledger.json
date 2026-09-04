@@ -72,20 +72,6 @@
    "k": 5
   },
   {
-   "n": 43,
-   "ts": "2026-09-03T14:45:30.290Z",
-   "explorer": "https://robinhoodchain.blockscout.com",
-   "kind": "snack",
-   "note": "pressed",
-   "burnedGmerald": "565999",
-   "burnGmeSpent": "15.4924",
-   "stashedGme": "0.0000",
-   "opsMovedGme": "0.0000",
-   "pegStatus": "below (-0.13%)",
-   "burnTx": "0xa2ac81a76b548cd759feb00e195aa12f10aa3bc362260fb1905fa6576f03022b",
-   "k": 38
-  },
-  {
    "n": 44,
    "ts": "2026-09-03T15:00:42.845Z",
    "explorer": "https://robinhoodchain.blockscout.com",
@@ -784,14 +770,28 @@
    "pegStatus": "at-or-above (+0.44%)",
    "burnTx": "0x7899428acf63c13406988989c440d8513396cb009319efff099c2832b7407c3d",
    "k": 85
+  },
+  {
+   "n": 94,
+   "ts": "2026-09-04T02:15:30.476Z",
+   "explorer": "https://robinhoodchain.blockscout.com",
+   "kind": "snack",
+   "note": "pressed",
+   "burnedGmerald": "240748",
+   "burnGmeSpent": "5.0000",
+   "stashedGme": "0.0000",
+   "opsMovedGme": "0.0000",
+   "pegStatus": "at-or-above (+0.44%)",
+   "burnTx": "0xe23377aa4a637baa16543bc22a7fab3c0f76aad6da75b31b07bd815fe7948636",
+   "k": 86
   }
  ],
- "stashScanBlock": "53892831",
+ "stashScanBlock": "53901755",
  "totals": {
   "press": 8,
-  "snack": 85,
-  "burnGme": 2162.943499999998,
+  "snack": 86,
+  "burnGme": 2167.943499999998,
   "stashedGme": 2139.9458,
-  "burnedGmerald": 144499578
+  "burnedGmerald": 144740326
  }
 }
