@@ -37,6 +37,7 @@ jobs:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ vars.TELEGRAM_CHAT_ID }}
           TOKEN_ADDRESS: ${{ vars.TOKEN_ADDRESS }}
+          RPC_URL_2: ${{ vars.RPC_URL_2 }}
           STASH_ADDRESS: ${{ vars.STASH_ADDRESS }}
           OPS_ADDRESS: ${{ vars.OPS_ADDRESS }}
           ESCROW_ADDRESS: ${{ vars.ESCROW_ADDRESS }}
