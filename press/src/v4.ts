@@ -42,18 +42,27 @@ export async function quoteGmeToToken(token: `0x${string}`, amountIn: bigint): P
   return result[0];
 }
 
+// Gas: the chain's base fee moves fast and viem's default cap can land under the next block's base fee
+// ("fee cap cannot be lower than the block base fee"). Cap at three times the current base fee; the chain
+// only charges what the block actually costs.
+async function fees(): Promise<{ maxFeePerGas: bigint; maxPriorityFeePerGas: bigint }> {
+  const b = await pub.getBlock(); const base = b.baseFeePerGas ?? 1_000_000_000n;
+  let prio = 0n; try { prio = await pub.estimateMaxPriorityFeePerGas(); } catch {}
+  return { maxFeePerGas: base * 3n + prio, maxPriorityFeePerGas: prio };
+}
+
 // Universal Router: command 0x10 = V4_SWAP; v4 actions 0x07 SWAP_EXACT_IN, 0x0c SETTLE_ALL, 0x0f TAKE_ALL.
 export async function swapGmeToToken(token: `0x${string}`, amountIn: bigint, minOut: bigint): Promise<`0x${string}`> {
   const w = wallet(); const me = account().address; const k = poolKey(token);
   // Permit2 is how the router pulls ERC-20 input: approve Permit2 once, then Permit2 -> router.
   const erc20Allow = await pub.readContract({ address: cfg.gme, abi: erc20, functionName: 'allowance', args: [me, V4.permit2] });
   if (erc20Allow < amountIn) {
-    const h = await w.writeContract({ address: cfg.gme, abi: erc20, functionName: 'approve', args: [V4.permit2, 2n ** 256n - 1n] });
+    const h = await w.writeContract({ address: cfg.gme, abi: erc20, functionName: 'approve', args: [V4.permit2, 2n ** 256n - 1n], ...(await fees()) });
     await pub.waitForTransactionReceipt({ hash: h });
   }
   const [p2Amt, p2Exp] = await pub.readContract({ address: V4.permit2, abi: permit2Abi, functionName: 'allowance', args: [me, cfg.gme, V4.universalRouter] });
   if (p2Amt < amountIn || Number(p2Exp) < Math.floor(Date.now() / 1000) + 600) {
-    const h = await w.writeContract({ address: V4.permit2, abi: permit2Abi, functionName: 'approve', args: [cfg.gme, V4.universalRouter, maxUint160, MAX_UINT48] });
+    const h = await w.writeContract({ address: V4.permit2, abi: permit2Abi, functionName: 'approve', args: [cfg.gme, V4.universalRouter, maxUint160, MAX_UINT48], ...(await fees()) });
     await pub.waitForTransactionReceipt({ hash: h });
   }
   // This chain's Universal Router carries a non-standard swap struct: an extra `bytes`
@@ -72,7 +81,7 @@ export async function swapGmeToToken(token: `0x${string}`, amountIn: bigint, min
   const actions = '0x070c0f' as `0x${string}`;
   const input = encodeAbiParameters([{ type: 'bytes' }, { type: 'bytes[]' }], [actions, [swapParams, settle, take]]);
   const deadline = BigInt(Math.floor(Date.now() / 1000) + 600);
-  const hash = await w.writeContract({ address: V4.universalRouter, abi: routerAbi, functionName: 'execute', args: ['0x10', [input], deadline] });
+  const hash = await w.writeContract({ address: V4.universalRouter, abi: routerAbi, functionName: 'execute', args: ['0x10', [input], deadline], ...(await fees()) });
   const rcpt = await pub.waitForTransactionReceipt({ hash });
   if (rcpt.status !== 'success') throw new Error(`v4 swap reverted: ${hash}`);
   return hash;
