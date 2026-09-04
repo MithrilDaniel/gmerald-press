@@ -17,6 +17,9 @@ if (job === 'doctor') {
 } else if (job === 'log') {
   const { runLog } = await import('./jobs/log.js');
   await runLog();
+} else if (job === 'holders') {
+  const { readHolders } = await import('./holders.js');
+  console.log(`holders: ${await readHolders()}`);
 } else if (job === 'tgcheck') {
   const { runTgCheck } = await import('./jobs/tgcheck.js');
   await runTgCheck();

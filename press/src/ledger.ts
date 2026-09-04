@@ -40,6 +40,7 @@ export type Stats = {
   sliceGme?: string;
   slicesLeft?: number;
   days?: Record<string, { snacks: number; gme: number; burned: number }>;
+  holders?: number;
 };
 
 const ledgerPath = () => join(cfg.siteDir, 'press-ledger.json');

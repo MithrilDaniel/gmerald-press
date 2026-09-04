@@ -9,7 +9,7 @@ on:
         description: which job
         type: choice
         default: press
-        options: [press, dry, doctor, tgcheck]
+        options: [press, dry, doctor, tgcheck, holders]
 
 permissions:
   contents: write
