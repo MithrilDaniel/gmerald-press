@@ -15,7 +15,7 @@ import { poolKey } from './v4.js';
 import { appendPress, readLedger, writeLedger, writeStats, burnGmeTotal, statsPath, countKind, hasTx, dailyRollup } from './ledger.js';
 import { parseAbiItem } from 'viem';
 import { readFileSync } from 'node:fs';
-import { post } from './telegram.js';
+import { post, postMedia, ART } from './telegram.js';
 
 const fmt = (v: bigint, dp = 2) => Number(formatUnits(v, 18)).toFixed(dp);
 const TOTAL_SUPPLY = 10n ** 27n; // 1,000,000,000 * 1e18, verified on-chain
@@ -66,7 +66,7 @@ async function scanStash(fairUsd?: number): Promise<number> {
       burnedGmerald: '0', burnGmeSpent: '0', stashedGme: gme.toFixed(4), opsMovedGme: '0',
       pegStatus: 'n/a', stashTx: tx, gmeUsd: fairUsd && fairUsd > 0 ? fairUsd : undefined,
     });
-    await post([`press #${entry.k} \u{1F439}`, `stashed ${gme.toFixed(2)} gme — ${cfg.explorer}/tx/${tx}`, `the stash: ${cfg.explorer}/address/${cfg.stash}`].join('\n'));
+    await postMedia(ART.press, [`press #${entry.k} \u{1F439}`, `stashed ${gme.toFixed(2)} gme — ${cfg.explorer}/tx/${tx}`, fedNote ? fedNote.trim() : null, `the stash: ${cfg.explorer}/address/${cfg.stash}`].filter(Boolean).join('\n'));
     added++;
   }
   const l2 = readLedger(); l2.stashScanBlock = latest.toString(); writeLedger(l2);
@@ -395,6 +395,8 @@ export async function runPress(): Promise<void> {
     ]);
     curveOut = { raisedGme: fmt(raised, 2), thresholdGme: fmt(threshold, 0), pct: threshold > 0n ? Math.min(100, Number((raised * 10000n) / threshold) / 100) : 0 };
   }
+  // the burn counter before this snack, so a whole percent crossing gets its own post
+  const prevPct = (() => { try { return Number(JSON.parse(readFileSync(statsPath(), 'utf8')).burnedPct) || 0; } catch { return 0; } })();
   writeStats({
     presses: countKind('press'), snacks: countKind('snack'), queuedGme: formatUnits(remaining, 18), sliceGme: fmt(nextSlice, 2), slicesLeft,
     burnedPct: burnedPct.toFixed(2),
@@ -417,6 +419,7 @@ export async function runPress(): Promise<void> {
     note !== 'pressed' ? note.replace('pressed · ', '') : null,
     `burned: ${burnedPct.toFixed(2)}% of supply · gme sunk: ${gmeSunk.toFixed(2)} · ${remaining >= minPress ? `${slicesLeft} more to go, one every ${cfg.cadenceMin} min` : 'that was the last one until the next claim'}`,
   ].filter(Boolean);
-  await post(lines.join('\n'));
+  await postMedia(ART.snack, lines.join('\n'));
+  if (Math.floor(burnedPct) > Math.floor(prevPct) && prevPct > 0) await postMedia(ART.burn, `${Math.floor(burnedPct)}% of supply is gone. ${burnedPct.toFixed(2)}% exactly, ${gmeSunk.toFixed(0)} gme sunk, never a share sold. gmerald.xyz`);
   console.log(`[press] snack #${entry.k} complete.`);
 }
