@@ -137,21 +137,6 @@
    "gmeUsd": 19.35
   },
   {
-   "n": 111,
-   "ts": "2026-09-04T06:00:31.945Z",
-   "explorer": "https://robinhoodchain.blockscout.com",
-   "kind": "snack",
-   "note": "pressed",
-   "burnedGmerald": "157518",
-   "burnGmeSpent": "3.1102",
-   "stashedGme": "0.0000",
-   "opsMovedGme": "0.0000",
-   "pegStatus": "at-or-above (+1.09%)",
-   "burnTx": "0x842a1e39c499b6e9deffe7e6be106d0e6a574bea2df18e89f18d6648e79cad62",
-   "k": 102,
-   "gmeUsd": 19.35
-  },
-  {
    "n": 112,
    "ts": "2026-09-04T06:15:33.507Z",
    "explorer": "https://robinhoodchain.blockscout.com",
@@ -885,14 +870,44 @@
    "burnTx": "0x33166b017539bbcd7714761cc5029ef763917dad939252f4e8bb1abc6a69521e",
    "gmeUsd": 19.195,
    "k": 149
+  },
+  {
+   "n": 161,
+   "ts": "2026-09-04T22:30:28.330Z",
+   "explorer": "https://robinhoodchain.blockscout.com",
+   "kind": "press",
+   "note": "press: 39.30 gme claimed from fees and stashed. never sold, never distributed. 54.30 gme went to the burn wallet in the same press, for snacks.",
+   "burnedGmerald": "0",
+   "burnGmeSpent": "0",
+   "stashedGme": "39.3047",
+   "opsMovedGme": "0",
+   "pegStatus": "n/a",
+   "stashTx": "0x350a86ef41e1e80f69febd8400d24d6fc591523a5d6a1383b9a5d7e13152e87c",
+   "gmeUsd": 19.195,
+   "k": 12
+  },
+  {
+   "n": 162,
+   "ts": "2026-09-04T22:30:31.026Z",
+   "explorer": "https://robinhoodchain.blockscout.com",
+   "kind": "snack",
+   "note": "pressed",
+   "burnedGmerald": "570587",
+   "burnGmeSpent": "5.0000",
+   "stashedGme": "0.0000",
+   "opsMovedGme": "0.0000",
+   "pegStatus": "at-or-above (+0.61%)",
+   "burnTx": "0x4128b7295b5b80eb9d4d877ef556376895e2c2fa8b8f873370dce8ff93bb0531",
+   "gmeUsd": 19.195,
+   "k": 150
   }
  ],
- "stashScanBlock": "54613328",
+ "stashScanBlock": "54622241",
  "totals": {
-  "press": 11,
-  "snack": 149,
-  "burnGme": 2549.022399999998,
-  "stashedGme": 2291.0062999999996,
-  "burnedGmerald": 168854720
+  "press": 12,
+  "snack": 150,
+  "burnGme": 2554.022399999998,
+  "stashedGme": 2330.3109999999997,
+  "burnedGmerald": 169425307
  }
 }
