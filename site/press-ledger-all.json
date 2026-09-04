@@ -12,7 +12,8 @@
    "pegStatus": "at-or-above",
    "burnTx": "0x162a3874e9ad71f6de77f5e4210cf217bd2974585d3db5e6f4996392ea881013",
    "kind": "press",
-   "k": 1
+   "k": 1,
+   "gmeUsd": 18.915
   },
   {
    "n": 2,
@@ -27,7 +28,8 @@
    "burnTx": "0x16699ff59ca18dbb671b3668dbc8a06c2165ae9a6973044be540967a0f82ef21",
    "stashTx": "0xda9b678662a48b4d57802af30adde306f49302d07b74c1184b8b548e1c0ad3cb",
    "kind": "press",
-   "k": 2
+   "k": 2,
+   "gmeUsd": 18.915
   },
   {
    "n": 3,
@@ -41,7 +43,8 @@
    "pegStatus": "at-or-above (+0.67%)",
    "burnTx": "0xfb4f0353a3c45380c9002cabfc3e1775284676f74c042dfd99702183baedabf7",
    "kind": "snack",
-   "k": 1
+   "k": 1,
+   "gmeUsd": 19.012
   },
   {
    "n": 4,
@@ -55,7 +58,8 @@
    "opsMovedGme": "0",
    "pegStatus": "n/a",
    "stashTx": "0x09bd3b14c2e1faf0eebdfca483cdb9fbb83b68e6fb567086f0c967beec335cc8",
-   "k": 3
+   "k": 3,
+   "gmeUsd": 19.012
   },
   {
    "n": 5,
@@ -69,7 +73,8 @@
    "opsMovedGme": "0.0000",
    "pegStatus": "below (-0.05%)",
    "burnTx": "0x4e821a968028080f2fe7bed5008f6c880897f43b889f9991989239edf5b3dc31",
-   "k": 2
+   "k": 2,
+   "gmeUsd": 19.012
   },
   {
    "n": 6,
@@ -83,7 +88,8 @@
    "opsMovedGme": "0.0000",
    "pegStatus": "below",
    "burnTx": "0x3c1fcc5c7f6b2a1f910715de4ca46b7451d0d6dfd34f45590629b3e11096819c",
-   "k": 3
+   "k": 3,
+   "gmeUsd": 19.012
   },
   {
    "n": 7,
@@ -97,105 +103,113 @@
    "opsMovedGme": "0.0000",
    "pegStatus": "below (-0.05%)",
    "burnTx": "0x069d8e451fd9a149d615eb0b4153417b889c6d96d5f4f90ca74acf249148e652",
-   "k": 4
+   "k": 4,
+   "gmeUsd": 19.012
   },
   {
    "n": 8,
    "ts": "2026-09-03T02:28:20.082Z",
    "explorer": "https://robinhoodchain.blockscout.com",
    "kind": "snack",
-   "note": "pressed · double: price 17.4% under its recent high",
+   "note": "pressed \u00b7 double: price 17.4% under its recent high",
    "burnedGmerald": "1589689",
    "burnGmeSpent": "40.0000",
    "stashedGme": "0.0000",
    "opsMovedGme": "0.0000",
    "pegStatus": "below (-0.01%)",
    "burnTx": "0x2fa2708b23a8a8bf2b1bb61e8819897d007891cecdb09dda22ac663b6e8a90d7",
-   "k": 5
+   "k": 5,
+   "gmeUsd": 19.012
   },
   {
    "n": 9,
    "ts": "2026-09-03T02:45:29.177Z",
    "explorer": "https://robinhoodchain.blockscout.com",
    "kind": "snack",
-   "note": "pressed · double: price 19.8% under its recent high",
+   "note": "pressed \u00b7 double: price 19.8% under its recent high",
    "burnedGmerald": "1377237",
    "burnGmeSpent": "40.0000",
    "stashedGme": "0.0000",
    "opsMovedGme": "0.0000",
    "pegStatus": "at-or-above (+0.16%)",
    "burnTx": "0x1ec0b365f48ea1073470585f6f39d7e38ac3a08fd6d1f01f02b8b8c53b56c660",
-   "k": 6
+   "k": 6,
+   "gmeUsd": 19.012
   },
   {
    "n": 10,
    "ts": "2026-09-03T03:00:41.815Z",
    "explorer": "https://robinhoodchain.blockscout.com",
    "kind": "snack",
-   "note": "pressed · double: price 22.1% under its recent high",
+   "note": "pressed \u00b7 double: price 22.1% under its recent high",
    "burnedGmerald": "1603391",
    "burnGmeSpent": "40.0000",
    "stashedGme": "0.0000",
    "opsMovedGme": "0.0000",
    "pegStatus": "at-or-above (+0.37%)",
    "burnTx": "0xfb981ac2ed41a3ec340b730485983b21f9838df3bc173154d807eddecdd0ca7e",
-   "k": 7
+   "k": 7,
+   "gmeUsd": 19.012
   },
   {
    "n": 11,
    "ts": "2026-09-03T03:15:26.303Z",
    "explorer": "https://robinhoodchain.blockscout.com",
    "kind": "snack",
-   "note": "pressed · half: a fresh high, up 19.8% in the hour",
+   "note": "pressed \u00b7 half: a fresh high, up 19.8% in the hour",
    "burnedGmerald": "337988",
    "burnGmeSpent": "10.0000",
    "stashedGme": "0.0000",
    "opsMovedGme": "0.0000",
    "pegStatus": "at-or-above (+0.42%)",
    "burnTx": "0x713925b03f2c7ef9de720f9bc6054d8aac02b8ac1363800eba5a3d545b87e779",
-   "k": 8
+   "k": 8,
+   "gmeUsd": 19.012
   },
   {
    "n": 12,
    "ts": "2026-09-03T03:45:29.517Z",
    "explorer": "https://robinhoodchain.blockscout.com",
    "kind": "snack",
-   "note": "pressed · half: a fresh high, up 58.4% in the hour",
+   "note": "pressed \u00b7 half: a fresh high, up 58.4% in the hour",
    "burnedGmerald": "232604",
    "burnGmeSpent": "10.0000",
    "stashedGme": "0.0000",
    "opsMovedGme": "0.0000",
    "pegStatus": "at-or-above (+0.52%)",
    "burnTx": "0x5c8f358908d9aff3d6484201bb75d6b0bcde8d2ef74c59cc99d94cc3d1a97161",
-   "k": 9
+   "k": 9,
+   "gmeUsd": 19.012
   },
   {
    "n": 13,
    "ts": "2026-09-03T04:00:28.405Z",
    "explorer": "https://robinhoodchain.blockscout.com",
    "kind": "snack",
-   "note": "pressed · half: a fresh high, up 105.0% in the hour",
+   "note": "pressed \u00b7 half: a fresh high, up 105.0% in the hour",
    "burnedGmerald": "199176",
    "burnGmeSpent": "10.0000",
    "stashedGme": "0.0000",
    "opsMovedGme": "0.0000",
    "pegStatus": "at-or-above (+0.73%)",
    "burnTx": "0x4643035e3f1a1d485213f18f2255ddf77041ffed3b48596f15728b28a1607a45",
-   "k": 10
+   "k": 10,
+   "gmeUsd": 19.012
   },
   {
    "n": 14,
    "ts": "2026-09-03T04:10:28.370Z",
    "explorer": "https://robinhoodchain.blockscout.com",
    "kind": "snack",
-   "note": "pressed · half: a fresh high, up 199.0% in the hour",
+   "note": "pressed \u00b7 half: a fresh high, up 199.0% in the hour",
    "burnedGmerald": "899314",
    "burnGmeSpent": "75.0000",
    "stashedGme": "0.0000",
    "opsMovedGme": "0.0000",
    "pegStatus": "at-or-above (+0.88%)",
    "burnTx": "0xebbdafb290558c63a917f2f38dbd1034a164df804ad6b03d982afeef18944147",
-   "k": 11
+   "k": 11,
+   "gmeUsd": 19.012
   },
   {
    "n": 15,
@@ -209,7 +223,8 @@
    "opsMovedGme": "0.0000",
    "pegStatus": "at-or-above (+0.73%)",
    "burnTx": "0xfccf2200711d56e5f8635dc321e2be2abffc47145971780fac885cc2bd964e0d",
-   "k": 12
+   "k": 12,
+   "gmeUsd": 19.012
   },
   {
    "n": 16,
@@ -223,7 +238,8 @@
    "opsMovedGme": "0",
    "pegStatus": "n/a",
    "stashTx": "0x01d722daca951259ede999116a8766e18b1c146ee493f0a3f0a8f0f011b69d58",
-   "k": 4
+   "k": 4,
+   "gmeUsd": 19.012
   },
   {
    "n": 17,
@@ -237,7 +253,8 @@
    "opsMovedGme": "0.0000",
    "pegStatus": "at-or-above (+0.62%)",
    "burnTx": "0x7931c37fac6e90f3a2e9992b9bf660ea66548a77074020521f4b188577b0ed67",
-   "k": 13
+   "k": 13,
+   "gmeUsd": 19.012
   },
   {
    "n": 18,
@@ -251,7 +268,8 @@
    "opsMovedGme": "0.0000",
    "pegStatus": "at-or-above (+0.42%)",
    "burnTx": "0xb3d0d3723de3b14efba60e68334528ae09f87a37634c5b648f26b68f1252544c",
-   "k": 14
+   "k": 14,
+   "gmeUsd": 19.012
   },
   {
    "n": 19,
@@ -265,7 +283,8 @@
    "opsMovedGme": "0.0000",
    "pegStatus": "at-or-above (+0.52%)",
    "burnTx": "0x5490e5eacddb5bf4089f04b678aabb375b03f784edb08fae202eb5551934baaf",
-   "k": 15
+   "k": 15,
+   "gmeUsd": 19.012
   },
   {
    "n": 20,
@@ -279,7 +298,8 @@
    "opsMovedGme": "0.0000",
    "pegStatus": "at-or-above (+0.57%)",
    "burnTx": "0x0bcff4bccfdfab1f5b018218b600f3705368764f02111527c0019fdc48ea6d21",
-   "k": 16
+   "k": 16,
+   "gmeUsd": 19.012
   },
   {
    "n": 21,
@@ -293,7 +313,8 @@
    "opsMovedGme": "0.0000",
    "pegStatus": "at-or-above (+0.38%)",
    "burnTx": "0x5d80df413f9f325bb657b4bd5a8a8efe6cdfecbd0bf205e4a2429519e69aad4d",
-   "k": 17
+   "k": 17,
+   "gmeUsd": 19.012
   },
   {
    "n": 22,
@@ -307,7 +328,8 @@
    "opsMovedGme": "0.0000",
    "pegStatus": "at-or-above (+0.67%)",
    "burnTx": "0xb07c36291a1dcc915797032feb26ffe9349b56078abad6b9c72a19d22502bf49",
-   "k": 18
+   "k": 18,
+   "gmeUsd": 19.012
   },
   {
    "n": 23,
@@ -321,7 +343,8 @@
    "opsMovedGme": "0.0000",
    "pegStatus": "at-or-above (+0.37%)",
    "burnTx": "0xe84762696f83135421881b6b32e69789b69a615c252cd79a193b046c62596851",
-   "k": 19
+   "k": 19,
+   "gmeUsd": 19.012
   },
   {
    "n": 24,
@@ -335,7 +358,8 @@
    "opsMovedGme": "0.0000",
    "pegStatus": "at-or-above (+0.52%)",
    "burnTx": "0x8ab7fad6107adc300836bafb5675de8d550fb9ef5e66f7ee6f9347e385b2d9e3",
-   "k": 20
+   "k": 20,
+   "gmeUsd": 19.012
   },
   {
    "n": 25,
@@ -349,7 +373,8 @@
    "opsMovedGme": "0.0000",
    "pegStatus": "at-or-above (+0.62%)",
    "burnTx": "0x1880cb15761c3f352081af4791c2ee14a4d253fa520217e7cd35e951289fa9f1",
-   "k": 21
+   "k": 21,
+   "gmeUsd": 19.012
   },
   {
    "n": 26,
@@ -363,7 +388,8 @@
    "opsMovedGme": "0.0000",
    "pegStatus": "at-or-above (+0.62%)",
    "burnTx": "0x911c9994df71a2bf788d9a6b231562f332c9af636e88630dd813db0ac245279e",
-   "k": 22
+   "k": 22,
+   "gmeUsd": 19.012
   },
   {
    "n": 27,
@@ -377,7 +403,8 @@
    "opsMovedGme": "0.0000",
    "pegStatus": "at-or-above (+0.46%)",
    "burnTx": "0xfb72198752887774160f9144e6911acfc03396094051eaa7b20b7c22421c9a69",
-   "k": 23
+   "k": 23,
+   "gmeUsd": 19.012
   },
   {
    "n": 28,
@@ -391,7 +418,8 @@
    "opsMovedGme": "0.0000",
    "pegStatus": "at-or-above (+0.57%)",
    "burnTx": "0xa63d03b1ea93c56180d0e9d651e0f288d4de98589c702227328342481aec1644",
-   "k": 24
+   "k": 24,
+   "gmeUsd": 19.012
   },
   {
    "n": 29,
@@ -405,7 +433,8 @@
    "opsMovedGme": "0.0000",
    "pegStatus": "at-or-above (+0.52%)",
    "burnTx": "0x88b46ff08bb9632a41cfc1cfc4db9458590431d5f1b288f1f68306f7d41f41eb",
-   "k": 25
+   "k": 25,
+   "gmeUsd": 19.012
   },
   {
    "n": 30,
@@ -419,7 +448,8 @@
    "opsMovedGme": "0.0000",
    "pegStatus": "at-or-above (+0.46%)",
    "burnTx": "0x8c287519d00bdf6c4346e3c1d01dbb2d5edccc76a79631b77cf45612a7cd5f96",
-   "k": 26
+   "k": 26,
+   "gmeUsd": 19.012
   },
   {
    "n": 31,
@@ -433,7 +463,8 @@
    "opsMovedGme": "0.0000",
    "pegStatus": "at-or-above (+0.46%)",
    "burnTx": "0x8ac8cbe7b77c41c6c59302ee75ce17140aacf67eccfae130d00dc4b98637a60d",
-   "k": 27
+   "k": 27,
+   "gmeUsd": 19.012
   },
   {
    "n": 32,
@@ -447,7 +478,8 @@
    "opsMovedGme": "0",
    "pegStatus": "n/a",
    "stashTx": "0xa4a561b7723912caea709d079a2d30235cef63e414049a02e4c359fe93ed882d",
-   "k": 5
+   "k": 5,
+   "gmeUsd": 19.012
   },
   {
    "n": 33,
@@ -461,7 +493,8 @@
    "opsMovedGme": "0.0000",
    "pegStatus": "at-or-above (+0.35%)",
    "burnTx": "0xb8b84c180a6323230f57aa354bd7a553d4afcd083eb3b5295479a2472c8ab39d",
-   "k": 28
+   "k": 28,
+   "gmeUsd": 19.012
   },
   {
    "n": 34,
@@ -475,7 +508,8 @@
    "opsMovedGme": "0.0000",
    "pegStatus": "at-or-above (+0.45%)",
    "burnTx": "0xeb15a9d342a1e1d8b76d4ef874e7e70c2b466213f84d9b7c7e5f9de83d8b4b6c",
-   "k": 29
+   "k": 29,
+   "gmeUsd": 19.012
   },
   {
    "n": 35,
@@ -489,7 +523,8 @@
    "opsMovedGme": "0.0000",
    "pegStatus": "at-or-above (+0.42%)",
    "burnTx": "0xfce960ab3054982396b3020da2c6189dd988ce9d31b32729aa00b8c4083f25a4",
-   "k": 30
+   "k": 30,
+   "gmeUsd": 19.012
   },
   {
    "n": 36,
@@ -503,7 +538,8 @@
    "opsMovedGme": "0.0000",
    "pegStatus": "at-or-above (+0.52%)",
    "burnTx": "0x5918acaf6e36eff59c98cf9dd8c2716fbf3a5677f0969f60054dcaadd948a569",
-   "k": 31
+   "k": 31,
+   "gmeUsd": 19.012
   },
   {
    "n": 37,
@@ -517,7 +553,8 @@
    "opsMovedGme": "0.0000",
    "pegStatus": "at-or-above (+0.46%)",
    "burnTx": "0xf65528ef314bf92c6b63150d4c3a8b2c5712d07bdbe5895e80dd7258f50fd12d",
-   "k": 32
+   "k": 32,
+   "gmeUsd": 19.012
   },
   {
    "n": 38,
@@ -531,7 +568,8 @@
    "opsMovedGme": "0.0000",
    "pegStatus": "at-or-above (+0.28%)",
    "burnTx": "0x90ea5c5cbdc50e77a0f6681bb20438d0d1074514d2d336ebc0463d764e9ef13e",
-   "k": 33
+   "k": 33,
+   "gmeUsd": 19.012
   },
   {
    "n": 39,
@@ -545,7 +583,8 @@
    "opsMovedGme": "0.0000",
    "pegStatus": "at-or-above (+0.10%)",
    "burnTx": "0x72a487c26fc01d67884efcf633039d18599cb6a7a245648cd7856f240dd6836f",
-   "k": 34
+   "k": 34,
+   "gmeUsd": 19.13
   },
   {
    "n": 40,
@@ -559,7 +598,8 @@
    "opsMovedGme": "0.0000",
    "pegStatus": "below (-0.26%)",
    "burnTx": "0x0ac1aedeb627d4edf6439024013b331b28d1561ae2464e8653c1ad0c28aa488f",
-   "k": 35
+   "k": 35,
+   "gmeUsd": 19.23
   },
   {
    "n": 41,
@@ -573,7 +613,8 @@
    "opsMovedGme": "0.0000",
    "pegStatus": "at-or-above (+0.13%)",
    "burnTx": "0x1b28cb2ee2d4af8fee1bb8821986ca9e7afd2539cdbfb437bd3910d425703009",
-   "k": 36
+   "k": 36,
+   "gmeUsd": 19.125
   },
   {
    "n": 42,
@@ -587,7 +628,8 @@
    "opsMovedGme": "0.0000",
    "pegStatus": "at-or-above (+0.29%)",
    "burnTx": "0x57131bcc5e62a7052962b6ea632417dc3f40330af4d42d881ad11e8d6ed78ced",
-   "k": 37
+   "k": 37,
+   "gmeUsd": 19.125
   },
   {
    "n": 43,
@@ -601,7 +643,8 @@
    "opsMovedGme": "0.0000",
    "pegStatus": "below (-0.13%)",
    "burnTx": "0xa2ac81a76b548cd759feb00e195aa12f10aa3bc362260fb1905fa6576f03022b",
-   "k": 38
+   "k": 38,
+   "gmeUsd": 19.225
   },
   {
    "n": 44,
@@ -615,7 +658,8 @@
    "opsMovedGme": "0.0000",
    "pegStatus": "at-or-above (+0.03%)",
    "burnTx": "0xd8e6df6b94982a703a03d2ca3eaefbe8525956480201269b4fc18bbd198ada10",
-   "k": 39
+   "k": 39,
+   "gmeUsd": 19.225
   },
   {
    "n": 45,
@@ -629,7 +673,8 @@
    "opsMovedGme": "0.0000",
    "pegStatus": "at-or-above (+0.34%)",
    "burnTx": "0xf90b5317a21051bae7d414b78db7ac3e8ecfc76627f2a6909d5eca2a9c4148cd",
-   "k": 40
+   "k": 40,
+   "gmeUsd": 19.1251
   },
   {
    "n": 46,
@@ -643,7 +688,8 @@
    "opsMovedGme": "0.0000",
    "pegStatus": "at-or-above (+0.44%)",
    "burnTx": "0x1f9309a9fc424f1ef31edb0770eb9f58cfec3d4b467d4f61293f008d96fbde60",
-   "k": 41
+   "k": 41,
+   "gmeUsd": 19.1251
   },
   {
    "n": 47,
@@ -657,7 +703,8 @@
    "opsMovedGme": "0.0000",
    "pegStatus": "below (-0.03%)",
    "burnTx": "0x026a86f483e9e19ba6a6f95c31062e4aeccfce0fb1eca542b4f5c93e7b28ed53",
-   "k": 42
+   "k": 42,
+   "gmeUsd": 19.2349
   },
   {
    "n": 48,
@@ -671,7 +718,8 @@
    "opsMovedGme": "0.0000",
    "pegStatus": "at-or-above (+0.13%)",
    "burnTx": "0xd471b89ac00eacdac4e74262b57c930adeb8bfc4e00497a78609addb13369ebc",
-   "k": 43
+   "k": 43,
+   "gmeUsd": 19.2349
   },
   {
    "n": 49,
@@ -685,7 +733,8 @@
    "opsMovedGme": "0.0000",
    "pegStatus": "below (-0.03%)",
    "burnTx": "0x8fbeb2a7249297af6cc1d3f4cc5485b29544fc5d371a73b859a5e6fafda04d43",
-   "k": 44
+   "k": 44,
+   "gmeUsd": 19.2349
   },
   {
    "n": 50,
@@ -699,7 +748,8 @@
    "opsMovedGme": "0",
    "pegStatus": "n/a",
    "stashTx": "0x8a7b7fee418c09f8f6b73950bda2b1733ed400077e912441183b5f3c5e934ce6",
-   "k": 6
+   "k": 6,
+   "gmeUsd": 19.2349
   },
   {
    "n": 51,
@@ -713,7 +763,8 @@
    "opsMovedGme": "0.0000",
    "pegStatus": "at-or-above (+0.18%)",
    "burnTx": "0x3a0d18e0b5d2535e398c37cc6d5b1ef91bf2e26215a26dcd73e75bf5db7b93b1",
-   "k": 45
+   "k": 45,
+   "gmeUsd": 19.2349
   },
   {
    "n": 52,
@@ -727,7 +778,8 @@
    "opsMovedGme": "0.0000",
    "pegStatus": "at-or-above (+0.08%)",
    "burnTx": "0x5132b31fce6bdb35501cc78ba2c90a4bade338a182d98fe0b6c22ecc6c382694",
-   "k": 46
+   "k": 46,
+   "gmeUsd": 19.2349
   },
   {
    "n": 53,
@@ -741,7 +793,8 @@
    "opsMovedGme": "0.0000",
    "pegStatus": "at-or-above (+0.18%)",
    "burnTx": "0x4a657a44793dec9e33be650b6baf61880c270920471b87d6a08d17a4ff85207c",
-   "k": 47
+   "k": 47,
+   "gmeUsd": 19.2349
   },
   {
    "n": 54,
@@ -755,7 +808,8 @@
    "opsMovedGme": "0.0000",
    "pegStatus": "at-or-above (+0.29%)",
    "burnTx": "0xc69e426c6490950c50af6c920fc1ece5611ef404f07095ee96cb2711ac8658ec",
-   "k": 48
+   "k": 48,
+   "gmeUsd": 19.135
   },
   {
    "n": 55,
@@ -769,7 +823,8 @@
    "opsMovedGme": "0.0000",
    "pegStatus": "at-or-above (+0.44%)",
    "burnTx": "0x4b04cdcff646a0dfeb1b680d40d3cf6a4257ded6717430a0b8da8799fc97b068",
-   "k": 49
+   "k": 49,
+   "gmeUsd": 19.135
   },
   {
    "n": 56,
@@ -783,7 +838,8 @@
    "opsMovedGme": "0.0000",
    "pegStatus": "at-or-above (+0.03%)",
    "burnTx": "0x6f323ae566f8c0349cb901e1e0c0b3a87b866aa00e58372f5f62ca5c27aea9ec",
-   "k": 50
+   "k": 50,
+   "gmeUsd": 19.255
   },
   {
    "n": 57,
@@ -797,7 +853,8 @@
    "opsMovedGme": "0.0000",
    "pegStatus": "at-or-above (+0.29%)",
    "burnTx": "0xcd471ce485a81a653a669fcf8dcb8c26ebc5366b8488d622280ec2985bfdd5b4",
-   "k": 51
+   "k": 51,
+   "gmeUsd": 19.155
   },
   {
    "n": 58,
@@ -811,7 +868,8 @@
    "opsMovedGme": "0.0000",
    "pegStatus": "at-or-above (+0.29%)",
    "burnTx": "0xa5f7fb4b81fe5789f4fd8c116672b0bf3e696caea6cde4f1a4d837095049ad90",
-   "k": 52
+   "k": 52,
+   "gmeUsd": 19.155
   },
   {
    "n": 59,
@@ -825,7 +883,8 @@
    "opsMovedGme": "0.0000",
    "pegStatus": "at-or-above (+0.34%)",
    "burnTx": "0x02cba3348edd8ef714de987a211c86519d6c3793e3f8a809f65e58424b4a638a",
-   "k": 53
+   "k": 53,
+   "gmeUsd": 19.155
   },
   {
    "n": 60,
@@ -839,7 +898,8 @@
    "opsMovedGme": "0.0000",
    "pegStatus": "at-or-above (+0.23%)",
    "burnTx": "0x6cc09d0b5e2507a02c19eae1b644c9c2ae45244eb11d168b54d3442aa4887bf7",
-   "k": 54
+   "k": 54,
+   "gmeUsd": 19.155
   },
   {
    "n": 61,
@@ -853,7 +913,8 @@
    "opsMovedGme": "0.0000",
    "pegStatus": "at-or-above (+0.29%)",
    "burnTx": "0xf9e1f62d09d40fd778fb7592443d5c5ddf95ef2fe0e05fcc48033a991ee9b947",
-   "k": 55
+   "k": 55,
+   "gmeUsd": 19.155
   },
   {
    "n": 62,
@@ -867,7 +928,8 @@
    "opsMovedGme": "0.0000",
    "pegStatus": "at-or-above (+0.29%)",
    "burnTx": "0xe050176831e68fd5609f96e6782bf54cef2932a84cbba01b8d123da9b8237751",
-   "k": 56
+   "k": 56,
+   "gmeUsd": 19.155
   },
   {
    "n": 63,
@@ -881,7 +943,8 @@
    "opsMovedGme": "0.0000",
    "pegStatus": "at-or-above (+0.13%)",
    "burnTx": "0x9c22726b0232439227ab407a433caf07911190aeae37cb09184d13b15b969d29",
-   "k": 57
+   "k": 57,
+   "gmeUsd": 19.155
   },
   {
    "n": 64,
@@ -895,7 +958,8 @@
    "opsMovedGme": "0.0000",
    "pegStatus": "at-or-above (+0.13%)",
    "burnTx": "0x2e5b3c58a68db140a2d49e9d81c03dcd2e881cbc1f16564c64eab4a603695a58",
-   "k": 58
+   "k": 58,
+   "gmeUsd": 19.155
   },
   {
    "n": 65,
@@ -909,7 +973,8 @@
    "opsMovedGme": "0.0000",
    "pegStatus": "at-or-above (+0.29%)",
    "burnTx": "0x77d9f5db378b05471478d510d3e5290e56b7f30cd02839517513a7c82154de81",
-   "k": 59
+   "k": 59,
+   "gmeUsd": 19.235
   },
   {
    "n": 66,
@@ -923,7 +988,8 @@
    "opsMovedGme": "0.0000",
    "pegStatus": "at-or-above (+0.34%)",
    "burnTx": "0x5a36eca242b15cd8a1bad50b00f2f31fda726d1326260907d8656a2ed82e7a9d",
-   "k": 60
+   "k": 60,
+   "gmeUsd": 19.235
   },
   {
    "n": 67,
@@ -937,7 +1003,8 @@
    "opsMovedGme": "0.0000",
    "pegStatus": "at-or-above (+0.60%)",
    "burnTx": "0x46672248f830bc65332c353c07693ec881c179934b7fbf92918ce5ef9ce6aa46",
-   "k": 61
+   "k": 61,
+   "gmeUsd": 19.235
   },
   {
    "n": 68,
@@ -951,7 +1018,8 @@
    "opsMovedGme": "0",
    "pegStatus": "n/a",
    "stashTx": "0x8d67550d5ab6966692c3e64ce405e104002fd61e087d02cb9ec03f71e6f0a781",
-   "k": 7
+   "k": 7,
+   "gmeUsd": 19.235
   },
   {
    "n": 69,
@@ -965,7 +1033,8 @@
    "opsMovedGme": "0.0000",
    "pegStatus": "at-or-above (+0.60%)",
    "burnTx": "0xf525c9ab274a89be831117ba2d86747f6477a0fc9cb3b746e38f9758573c41f0",
-   "k": 62
+   "k": 62,
+   "gmeUsd": 19.235
   },
   {
    "n": 70,
@@ -979,7 +1048,8 @@
    "opsMovedGme": "0.0000",
    "pegStatus": "at-or-above (+0.29%)",
    "burnTx": "0x38c113eabe9e2c093b475c6855ed1404a623d6f02700ba14d7d60fdfad2f756a",
-   "k": 63
+   "k": 63,
+   "gmeUsd": 19.235
   },
   {
    "n": 71,
@@ -993,7 +1063,8 @@
    "opsMovedGme": "0.0000",
    "pegStatus": "at-or-above (+0.29%)",
    "burnTx": "0x53be3dcc8316917d42339aee04b907bee35f8f1903bf3800a94ae6fa71567208",
-   "k": 64
+   "k": 64,
+   "gmeUsd": 19.235
   },
   {
    "n": 72,
@@ -1007,7 +1078,8 @@
    "opsMovedGme": "0.0000",
    "pegStatus": "at-or-above (+0.29%)",
    "burnTx": "0xeeb574167dace7ae5b3e8a23074b2edc6402836f0fb1634f8758427d47540942",
-   "k": 65
+   "k": 65,
+   "gmeUsd": 19.235
   },
   {
    "n": 73,
@@ -1021,7 +1093,8 @@
    "opsMovedGme": "0.0000",
    "pegStatus": "at-or-above (+0.29%)",
    "burnTx": "0xe30e03263eed8a1501f21bce084c89ce61d380d14222be61a4306e887895eaab",
-   "k": 66
+   "k": 66,
+   "gmeUsd": 19.235
   },
   {
    "n": 74,
@@ -1035,7 +1108,8 @@
    "opsMovedGme": "0.0000",
    "pegStatus": "at-or-above (+0.39%)",
    "burnTx": "0x78066d5ee096e72be46c7e9628d0fcf05499c8de9ebc10a513f0d924892bf36a",
-   "k": 67
+   "k": 67,
+   "gmeUsd": 19.235
   },
   {
    "n": 75,
@@ -1049,7 +1123,8 @@
    "opsMovedGme": "0.0000",
    "pegStatus": "at-or-above (+0.49%)",
    "burnTx": "0x2feb6d5603de3a5c9917c17b5dfe042943a726d24509ed714e1e64e3fe7d930c",
-   "k": 68
+   "k": 68,
+   "gmeUsd": 19.235
   },
   {
    "n": 76,
@@ -1063,7 +1138,8 @@
    "opsMovedGme": "0.0000",
    "pegStatus": "at-or-above (+0.34%)",
    "burnTx": "0x61e1d3cb41e1be76f509b57f136aafdc43ae5587b944eaf8112f1cf77ed76a0a",
-   "k": 69
+   "k": 69,
+   "gmeUsd": 19.235
   },
   {
    "n": 77,
@@ -1077,7 +1153,8 @@
    "opsMovedGme": "0.0000",
    "pegStatus": "at-or-above (+0.44%)",
    "burnTx": "0x4921e89a0ed48e3bbb2b13725261d45f3f14561174590b744594d583f74bf34d",
-   "k": 70
+   "k": 70,
+   "gmeUsd": 19.235
   },
   {
    "n": 78,
@@ -1091,7 +1168,8 @@
    "opsMovedGme": "0.0000",
    "pegStatus": "at-or-above (+0.44%)",
    "burnTx": "0x0ca7abf09358e4fcc0a277b080b132b25062ed402c601fab58e0bf1016cba6d2",
-   "k": 71
+   "k": 71,
+   "gmeUsd": 19.235
   },
   {
    "n": 79,
@@ -1105,7 +1183,8 @@
    "opsMovedGme": "0.0000",
    "pegStatus": "at-or-above (+0.55%)",
    "burnTx": "0x0be241b9ba6ebc28dfc466603ec1ed3b69eaf54631312fc0155ba915542e63d2",
-   "k": 72
+   "k": 72,
+   "gmeUsd": 19.235
   },
   {
    "n": 80,
@@ -1119,7 +1198,8 @@
    "opsMovedGme": "0.0000",
    "pegStatus": "at-or-above (+0.44%)",
    "burnTx": "0x001a40317c18f97ad0eb237ba22353de1bc9b031f9e671f8d8689310c3149d2e",
-   "k": 73
+   "k": 73,
+   "gmeUsd": 19.235
   },
   {
    "n": 81,
@@ -1133,7 +1213,8 @@
    "opsMovedGme": "0.0000",
    "pegStatus": "at-or-above (+0.55%)",
    "burnTx": "0xd08d1abe9f696db8391e60f2b74abcd8f14eee8ab54732456f2e37e9651278b8",
-   "k": 74
+   "k": 74,
+   "gmeUsd": 19.235
   },
   {
    "n": 82,
@@ -1147,7 +1228,8 @@
    "opsMovedGme": "0.0000",
    "pegStatus": "at-or-above (+0.49%)",
    "burnTx": "0x6cb92a45cfc45ad577d30731c593f45b2ff30c3f9740958e53254636e3d2dc59",
-   "k": 75
+   "k": 75,
+   "gmeUsd": 19.235
   },
   {
    "n": 83,
@@ -1161,7 +1243,8 @@
    "opsMovedGme": "0.0000",
    "pegStatus": "at-or-above (+0.44%)",
    "burnTx": "0x202dc86669d02d010c405d75443cc0f8c7c171fb215fa29a29b918c5504fe6a0",
-   "k": 76
+   "k": 76,
+   "gmeUsd": 19.235
   },
   {
    "n": 84,
@@ -1175,7 +1258,8 @@
    "opsMovedGme": "0.0000",
    "pegStatus": "at-or-above (+0.44%)",
    "burnTx": "0x5866c42c5fa91928f30dfdc5ab853c8c9e74b2e0e1591bf14aa65ae74be65b00",
-   "k": 77
+   "k": 77,
+   "gmeUsd": 19.235
   },
   {
    "n": 85,
@@ -1189,7 +1273,8 @@
    "opsMovedGme": "0.0000",
    "pegStatus": "at-or-above (+0.39%)",
    "burnTx": "0xc98246fea3f57b9961d955ba2424530b1b4388025efac02eb8d4e5741b44ebdf",
-   "k": 78
+   "k": 78,
+   "gmeUsd": 19.235
   },
   {
    "n": 86,
@@ -1203,7 +1288,8 @@
    "opsMovedGme": "0.0000",
    "pegStatus": "at-or-above (+0.05%)",
    "burnTx": "0xad06aff1a29af887716e4033235b7b0f945c69d5306968329aefce2e5be213b4",
-   "k": 79
+   "k": 79,
+   "gmeUsd": 19.35
   },
   {
    "n": 87,
@@ -1217,7 +1303,8 @@
    "opsMovedGme": "0.0000",
    "pegStatus": "at-or-above (+0.00%)",
    "burnTx": "0xca74d4ec128d1048de15f7f07bef355d4b4e24251cf691ff64c0b7aa86b2069d",
-   "k": 80
+   "k": 80,
+   "gmeUsd": 19.35
   },
   {
    "n": 88,
@@ -1231,7 +1318,8 @@
    "opsMovedGme": "0",
    "pegStatus": "n/a",
    "stashTx": "0x82981d358f5d0d97b3f802fd81f53d839460d53e048bce62c20403f8c83f1ff5",
-   "k": 8
+   "k": 8,
+   "gmeUsd": 19.35
   },
   {
    "n": 89,
@@ -1245,7 +1333,8 @@
    "opsMovedGme": "0.0000",
    "pegStatus": "below (-0.10%)",
    "burnTx": "0xd45fb551b9fdb6c21d3394ead3f4dcdbae136719ea41bae5fddcab152f7d05ba",
-   "k": 81
+   "k": 81,
+   "gmeUsd": 19.35
   },
   {
    "n": 90,
@@ -1259,7 +1348,8 @@
    "opsMovedGme": "0.0000",
    "pegStatus": "below (-0.16%)",
    "burnTx": "0xaa6eefa036d34e65696cae7637e7039a4907e2fca6a36a6caab9e7c06f49fca6",
-   "k": 82
+   "k": 82,
+   "gmeUsd": 19.35
   },
   {
    "n": 91,
@@ -1273,7 +1363,8 @@
    "opsMovedGme": "0.0000",
    "pegStatus": "at-or-above (+0.39%)",
    "burnTx": "0x2a04a5172316f7f7a741fcaecde6ac3c2a09794f249fc4d752b090d6d3f26ec6",
-   "k": 83
+   "k": 83,
+   "gmeUsd": 19.245
   },
   {
    "n": 92,
@@ -1287,7 +1378,8 @@
    "opsMovedGme": "0.0000",
    "pegStatus": "at-or-above (+0.34%)",
    "burnTx": "0xb416d742bf94fe987eaf290bd81240182e3056ef3cdfcb1fca6b443ca2d8df19",
-   "k": 84
+   "k": 84,
+   "gmeUsd": 19.245
   },
   {
    "n": 93,
@@ -1301,7 +1393,8 @@
    "opsMovedGme": "0.0000",
    "pegStatus": "at-or-above (+0.44%)",
    "burnTx": "0x7899428acf63c13406988989c440d8513396cb009319efff099c2832b7407c3d",
-   "k": 85
+   "k": 85,
+   "gmeUsd": 19.245
   },
   {
    "n": 94,
@@ -1315,7 +1408,8 @@
    "opsMovedGme": "0.0000",
    "pegStatus": "at-or-above (+0.44%)",
    "burnTx": "0xe23377aa4a637baa16543bc22a7fab3c0f76aad6da75b31b07bd815fe7948636",
-   "k": 86
+   "k": 86,
+   "gmeUsd": 19.245
   },
   {
    "n": 95,
@@ -1329,7 +1423,8 @@
    "opsMovedGme": "0.0000",
    "pegStatus": "at-or-above (+0.44%)",
    "burnTx": "0x871e66e0731fa126d0bc5107205220151a54dd3b1d6ea3d12cbaada280e570cf",
-   "k": 87
+   "k": 87,
+   "gmeUsd": 19.245
   },
   {
    "n": 96,
@@ -1343,7 +1438,8 @@
    "opsMovedGme": "0.0000",
    "pegStatus": "at-or-above (+0.44%)",
    "burnTx": "0x88693459d0d6cda46b22d48e665b634af3014fb15fafd52393c067bb3916af01",
-   "k": 88
+   "k": 88,
+   "gmeUsd": 19.245
   },
   {
    "n": 97,
@@ -1357,7 +1453,8 @@
    "opsMovedGme": "0.0000",
    "pegStatus": "at-or-above (+0.44%)",
    "burnTx": "0xd5dd8b8910aeef15ad7ae11ba2345ffe87f0a451e0cba4a4f6944e085888cb01",
-   "k": 89
+   "k": 89,
+   "gmeUsd": 19.245
   },
   {
    "n": 98,
@@ -1371,7 +1468,8 @@
    "opsMovedGme": "0.0000",
    "pegStatus": "at-or-above (+0.55%)",
    "burnTx": "0xa597bbb3f3341114e77f444d145382f69b2dd12522f2103de76ee030a1314ace",
-   "k": 90
+   "k": 90,
+   "gmeUsd": 19.245
   },
   {
    "n": 99,
@@ -1385,7 +1483,8 @@
    "opsMovedGme": "0.0000",
    "pegStatus": "at-or-above (+0.65%)",
    "burnTx": "0xe1f6360b565a6cc34d95c0008d91e701c056d528302f96e59ddbdd7fffa89ce8",
-   "k": 91
+   "k": 91,
+   "gmeUsd": 19.245
   },
   {
    "n": 100,
@@ -1399,7 +1498,8 @@
    "opsMovedGme": "0.0000",
    "pegStatus": "at-or-above (+0.70%)",
    "burnTx": "0xdbee1d24e53938aa9b99b2828497481b2fe085bddfe3c49e1012f9f643643811",
-   "k": 92
+   "k": 92,
+   "gmeUsd": 19.245
   },
   {
    "n": 101,
@@ -1413,7 +1513,8 @@
    "opsMovedGme": "0.0000",
    "pegStatus": "at-or-above (+0.26%)",
    "burnTx": "0xc6a1ab55e696d5c7ea039a186d512991cb816a1a468f8e2b8546aad99603e694",
-   "k": 93
+   "k": 93,
+   "gmeUsd": 19.35
   },
   {
    "n": 102,
@@ -1427,7 +1528,8 @@
    "opsMovedGme": "0.0000",
    "pegStatus": "at-or-above (+0.62%)",
    "burnTx": "0xa393c9f71e6eed1f5f1edc4a724eea59625cec36ed9c3c5188381cc9c005ba8a",
-   "k": 94
+   "k": 94,
+   "gmeUsd": 19.35
   },
   {
    "n": 103,
@@ -1441,7 +1543,8 @@
    "opsMovedGme": "0.0000",
    "pegStatus": "at-or-above (+0.62%)",
    "burnTx": "0x0d3af93a1ad283a60d12325ec8cc0c6aacfb4f9e5f1def6e16de7a28ea05ea89",
-   "k": 95
+   "k": 95,
+   "gmeUsd": 19.35
   },
   {
    "n": 104,
@@ -1455,7 +1558,8 @@
    "opsMovedGme": "0.0000",
    "pegStatus": "at-or-above (+0.98%)",
    "burnTx": "0xbeca825a9b50eef0f8fe15827783c177071a2f98b16c455c0fb2938f5dbea046",
-   "k": 96
+   "k": 96,
+   "gmeUsd": 19.35
   },
   {
    "n": 105,
@@ -1469,7 +1573,8 @@
    "opsMovedGme": "0",
    "pegStatus": "n/a",
    "stashTx": "0x3ae08886fc80db861b8d5a4d3a143b2e511493cf2446fa7b057bf664a4f3e063",
-   "k": 9
+   "k": 9,
+   "gmeUsd": 19.35
   },
   {
    "n": 106,
@@ -1483,7 +1588,8 @@
    "opsMovedGme": "0.0000",
    "pegStatus": "at-or-above (+1.40%)",
    "burnTx": "0xc247fdefb31f4983d63da09b84f8726b9f609fcb3e02b8f5b13cd1fb05e82e12",
-   "k": 97
+   "k": 97,
+   "gmeUsd": 19.35
   },
   {
    "n": 107,
@@ -1497,7 +1603,8 @@
    "opsMovedGme": "0.0000",
    "pegStatus": "at-or-above (+1.29%)",
    "burnTx": "0x954de020ecc766bdfe556d55ab6e1a274dee47e9e5cebee7d30f2c672f868647",
-   "k": 98
+   "k": 98,
+   "gmeUsd": 19.35
   },
   {
    "n": 108,
@@ -1511,7 +1618,8 @@
    "opsMovedGme": "0.0000",
    "pegStatus": "at-or-above (+1.50%)",
    "burnTx": "0x871394f4ac8de90069c667fd2640fa30415c2d9bf8ae6d10d14e0d17e0526088",
-   "k": 99
+   "k": 99,
+   "gmeUsd": 19.35
   },
   {
    "n": 109,
@@ -1525,7 +1633,8 @@
    "opsMovedGme": "0.0000",
    "pegStatus": "at-or-above (+1.65%)",
    "burnTx": "0xcce45d726db30b725a7b8efa5278b63967b3d5cbd982896c99851d2c73496103",
-   "k": 100
+   "k": 100,
+   "gmeUsd": 19.35
   },
   {
    "n": 110,
@@ -1539,7 +1648,8 @@
    "opsMovedGme": "0.0000",
    "pegStatus": "at-or-above (+2.33%)",
    "burnTx": "0x3fbdce085d6a4f417dd17b4426d1e7c0abca8a67195390ab0041e42354e7d27b",
-   "k": 101
+   "k": 101,
+   "gmeUsd": 19.35
   },
   {
    "n": 111,
@@ -1553,7 +1663,8 @@
    "opsMovedGme": "0.0000",
    "pegStatus": "at-or-above (+1.09%)",
    "burnTx": "0x842a1e39c499b6e9deffe7e6be106d0e6a574bea2df18e89f18d6648e79cad62",
-   "k": 102
+   "k": 102,
+   "gmeUsd": 19.35
   },
   {
    "n": 112,
@@ -1567,7 +1678,8 @@
    "opsMovedGme": "0.0000",
    "pegStatus": "at-or-above (+1.26%)",
    "burnTx": "0x746c5803b32bcacedefb17862f248815e91882c1f20c7dfe23d3529731e09ef7",
-   "k": 103
+   "k": 103,
+   "gmeUsd": 19.455
   },
   {
    "n": 113,
@@ -1581,7 +1693,8 @@
    "opsMovedGme": "0.0000",
    "pegStatus": "at-or-above (+0.90%)",
    "burnTx": "0x32e26adb0a38374397193dcb300946598e058fdc5d672d56c772cce180dc5df1",
-   "k": 104
+   "k": 104,
+   "gmeUsd": 19.455
   },
   {
    "n": 114,
@@ -1595,7 +1708,8 @@
    "opsMovedGme": "0.0000",
    "pegStatus": "at-or-above (+1.57%)",
    "burnTx": "0x2358780ea016152c7f346466e48c02266167135238f0e9ec5830a1eb69ff3571",
-   "k": 105
+   "k": 105,
+   "gmeUsd": 19.455
   },
   {
    "n": 115,
@@ -1609,7 +1723,8 @@
    "opsMovedGme": "0.0000",
    "pegStatus": "at-or-above (+1.52%)",
    "burnTx": "0xc2c55b256d1a7d8e716ff0d69acfbc9f569d8e6d8f0484ac3a66eeee1b878640",
-   "k": 106
+   "k": 106,
+   "gmeUsd": 19.455
   },
   {
    "n": 116,
@@ -1623,7 +1738,8 @@
    "opsMovedGme": "0.0000",
    "pegStatus": "at-or-above (+1.82%)",
    "burnTx": "0x394b516fd85534c6242a29965e10470b8b95ebe6491a673423c4784bd47f1d24",
-   "k": 107
+   "k": 107,
+   "gmeUsd": 19.455
   },
   {
    "n": 117,
@@ -1637,7 +1753,8 @@
    "opsMovedGme": "0.0000",
    "pegStatus": "at-or-above (+2.63%)",
    "burnTx": "0x4f838e10d9410b6f2dfec31d790751cf6b2fda0e7e9f29204e00e6738b8b2284",
-   "k": 108
+   "k": 108,
+   "gmeUsd": 19.555
   },
   {
    "n": 118,
@@ -1651,7 +1768,8 @@
    "opsMovedGme": "0.0000",
    "pegStatus": "at-or-above (+6.98%)",
    "burnTx": "0xc6d7fdf4c03fe92473c2c7d31380a341f2675bc3a12ab45e1b9ff7c0d9e98900",
-   "k": 109
+   "k": 109,
+   "gmeUsd": 19.5546
   },
   {
    "n": 119,
@@ -1665,7 +1783,8 @@
    "opsMovedGme": "0.0000",
    "pegStatus": "at-or-above (+2.83%)",
    "burnTx": "0x945fc416b43409aa2cb8e9809e4f15253961e37253afb5c2fd5b8ca9e3c3d52d",
-   "k": 110
+   "k": 110,
+   "gmeUsd": 19.9553
   },
   {
    "n": 120,
@@ -1679,7 +1798,8 @@
    "opsMovedGme": "0.0000",
    "pegStatus": "at-or-above (+2.68%)",
    "burnTx": "0xbec1f4615d0c0ce08850094b4ac3c846e46e6315c5498bcdef626fb967f7f787",
-   "k": 111
+   "k": 111,
+   "gmeUsd": 19.9553
   },
   {
    "n": 121,
@@ -1693,7 +1813,8 @@
    "opsMovedGme": "0.0000",
    "pegStatus": "at-or-above (+2.61%)",
    "burnTx": "0xc7449f05c5e586e497a8a967b8818bfc92251a492a623872a5ab285573eb1449",
-   "k": 112
+   "k": 112,
+   "gmeUsd": 19.8223
   },
   {
    "n": 122,
@@ -1707,7 +1828,8 @@
    "opsMovedGme": "0.0000",
    "pegStatus": "at-or-above (+2.01%)",
    "burnTx": "0x77847c95837ba3dc286b08dd64c7f959e4f1b3db9ac22ecf2f2025ae8c165cb3",
-   "k": 113
+   "k": 113,
+   "gmeUsd": 19.8223
   },
   {
    "n": 123,
@@ -1721,7 +1843,8 @@
    "opsMovedGme": "0.0000",
    "pegStatus": "at-or-above (+1.50%)",
    "burnTx": "0xb4a924e4fc019cbffd4b860b562a73c694ef7a46e0c0385f5a24cd4dfe557f82",
-   "k": 114
+   "k": 114,
+   "gmeUsd": 19.8223
   },
   {
    "n": 124,
@@ -1735,7 +1858,8 @@
    "opsMovedGme": "0.0000",
    "pegStatus": "at-or-above (+1.39%)",
    "burnTx": "0x970bdf8974dd7e6a11650efba9e6aedef9328ccd8afa42597b6d10863d37970c",
-   "k": 115
+   "k": 115,
+   "gmeUsd": 19.8223
   },
   {
    "n": 125,
@@ -1749,7 +1873,8 @@
    "opsMovedGme": "0.0000",
    "pegStatus": "at-or-above (+1.27%)",
    "burnTx": "0x78684351b4d32629adb5ee6670dadc4d20cd0d67e1e97ebb526afae3ffb7e0bb",
-   "k": 116
+   "k": 116,
+   "gmeUsd": 19.8223
   },
   {
    "n": 126,
@@ -1763,7 +1888,8 @@
    "opsMovedGme": "0.0000",
    "pegStatus": "at-or-above (+1.29%)",
    "burnTx": "0x54248434c282c8a809e1b3a4ef4f57af059afcbf4b42a95236a53512f28b6ce8",
-   "k": 117
+   "k": 117,
+   "gmeUsd": 19.8223
   },
   {
    "n": 127,
@@ -1777,7 +1903,8 @@
    "opsMovedGme": "0.0000",
    "pegStatus": "at-or-above (+1.25%)",
    "burnTx": "0xb7f75e5d4ff2b79e6b7585b58ca912ad5ef0328887a8f829f97bd3f75f35247c",
-   "k": 118
+   "k": 118,
+   "gmeUsd": 19.8223
   },
   {
    "n": 128,
@@ -1791,7 +1918,8 @@
    "opsMovedGme": "0.0000",
    "pegStatus": "at-or-above (+1.30%)",
    "burnTx": "0x8c9c5d66073f9dfad6104bc2e8e25d63c3427ad24f5eb80b1c649bb2ce61ae58",
-   "k": 119
+   "k": 119,
+   "gmeUsd": 19.8102
   },
   {
    "n": 129,
@@ -1805,7 +1933,8 @@
    "opsMovedGme": "0.0000",
    "pegStatus": "at-or-above (+1.98%)",
    "burnTx": "0x20b6224a2fb389407a6e2716c35bc6253b6a6ee0a4b6ae37c66b24e5b80604d6",
-   "k": 120
+   "k": 120,
+   "gmeUsd": 19.6703
   },
   {
    "n": 130,
@@ -1819,7 +1948,8 @@
    "opsMovedGme": "0",
    "pegStatus": "n/a",
    "stashTx": "0x2ff706b9e1154dbd7af4473d77446704a371a0080f516dae85373706b4e69f3b",
-   "k": 10
+   "k": 10,
+   "gmeUsd": 19.6703
   },
   {
    "n": 131,
@@ -1833,7 +1963,8 @@
    "opsMovedGme": "0.0000",
    "pegStatus": "at-or-above (+1.81%)",
    "burnTx": "0x2345f1859b59ab01e034f51122496d845352b7779105edbe556f1e1bd6a2cd7c",
-   "k": 121
+   "k": 121,
+   "gmeUsd": 19.6703
   },
   {
    "n": 132,
@@ -1847,7 +1978,8 @@
    "opsMovedGme": "0.0000",
    "pegStatus": "at-or-above (+1.37%)",
    "burnTx": "0xb77386f100e7d90b8907c43f20d6e497594f7812cd8d5a6f8be302e7fbb4a359",
-   "k": 122
+   "k": 122,
+   "gmeUsd": 19.6703
   },
   {
    "n": 133,
@@ -1861,7 +1993,8 @@
    "opsMovedGme": "0.0000",
    "pegStatus": "at-or-above (+1.48%)",
    "burnTx": "0xd3d19766e8fe376dbdc075a2026fd2c7b77653ed6f669a804e9e76b27e667519",
-   "k": 123
+   "k": 123,
+   "gmeUsd": 19.5603
   },
   {
    "n": 134,
@@ -1875,7 +2008,8 @@
    "opsMovedGme": "0.0000",
    "pegStatus": "at-or-above (+1.38%)",
    "burnTx": "0x5fdaff2a4dca7208d24a1dbcfdfe58a4aade00fc180111ead171bff452a38825",
-   "k": 124
+   "k": 124,
+   "gmeUsd": 19.5603
   },
   {
    "n": 135,
@@ -1889,21 +2023,23 @@
    "opsMovedGme": "0.0000",
    "pegStatus": "at-or-above (+1.33%)",
    "burnTx": "0x8cb9e43801fee1ac04d1e9d9796f6bbe222f5be4257c906635eaf4ae1f3d2e24",
-   "k": 125
+   "k": 125,
+   "gmeUsd": 19.5603
   },
   {
    "n": 136,
    "ts": "2026-09-04T12:10:41.434Z",
    "explorer": "https://robinhoodchain.blockscout.com",
    "kind": "snack",
-   "note": "pressed · plus 3084571 that was already waiting in the burn wallet",
+   "note": "pressed \u00b7 plus 3084571 that was already waiting in the burn wallet",
    "burnedGmerald": "3429167",
    "burnGmeSpent": "5.0000",
    "stashedGme": "0.0000",
    "opsMovedGme": "0.0000",
    "pegStatus": "at-or-above (+1.12%)",
    "burnTx": "0x2d412a6eebcdc613a475b23ebf0a3a44f2e069ff21baf10510a0c35eca2df022",
-   "k": 126
+   "k": 126,
+   "gmeUsd": 19.5603
   },
   {
    "n": 137,
@@ -1917,7 +2053,8 @@
    "opsMovedGme": "0.0000",
    "pegStatus": "at-or-above (+0.97%)",
    "burnTx": "0x49de922aed01927240320db12a6c2a94cffbd9ec6b2c66ffca27f69e55983057",
-   "k": 127
+   "k": 127,
+   "gmeUsd": 19.5603
   },
   {
    "n": 138,
@@ -1931,7 +2068,8 @@
    "opsMovedGme": "0.0000",
    "pegStatus": "at-or-above (+0.92%)",
    "burnTx": "0xf18263615a61c96221b9a3299faa024a2663d696072b91ab5ecc223a43a1e2ba",
-   "k": 128
+   "k": 128,
+   "gmeUsd": 19.5603
   },
   {
    "n": 139,
@@ -1945,7 +2083,8 @@
    "opsMovedGme": "0.0000",
    "pegStatus": "at-or-above (+1.46%)",
    "burnTx": "0x495b26a9b56e36ca70d70c67c7fc8da50e96c251a953694b7a0b7e6e3fc00fcc",
-   "k": 129
+   "k": 129,
+   "gmeUsd": 19.4362
   },
   {
    "n": 140,
@@ -1959,7 +2098,8 @@
    "opsMovedGme": "0.0000",
    "pegStatus": "at-or-above (+1.46%)",
    "burnTx": "0x46f00e48e35fd67f3a824304819518f2a09818d7d01c23b735d6f57fa650a023",
-   "k": 130
+   "k": 130,
+   "gmeUsd": 19.4362
   },
   {
    "n": 141,
@@ -1973,7 +2113,8 @@
    "opsMovedGme": "0.0000",
    "pegStatus": "at-or-above (+0.89%)",
    "burnTx": "0x61c8521bf77ec989de1fa23ed3ae04beee4744e90901bbd4d5f85f31102134d0",
-   "k": 131
+   "k": 131,
+   "gmeUsd": 19.4362
   }
  ]
 }
