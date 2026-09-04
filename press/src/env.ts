@@ -18,6 +18,7 @@ const addr = (k: string, d = ''): `0x${string}` | '' => {
 
 export const cfg = {
   rpcUrl: opt('RPC_URL', 'https://rpc.mainnet.chain.robinhood.com'),
+  rpcUrl2: process.env.RPC_URL_2 || '',
   explorer: opt('EXPLORER_URL', 'https://robinhoodchain.blockscout.com'),
 
   factory: addr('FACTORY_ADDRESS', '0x7eD598BcEf8bd9Edd8C97A195C6d13f40801EC7e') as `0x${string}`,
