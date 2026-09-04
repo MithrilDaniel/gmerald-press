@@ -39,6 +39,7 @@ export type Stats = {
   queuedGme?: string;
   sliceGme?: string;
   slicesLeft?: number;
+  days?: Record<string, { snacks: number; gme: number; burned: number }>;
 };
 
 const ledgerPath = () => join(cfg.siteDir, 'press-ledger.json');
@@ -58,6 +59,15 @@ function sumTotals(all: PressEntry[]): Totals {
   return t;
 }
 export const totals = (): Totals => readLedger().totals ?? sumTotals(readArchive());
+// Per-day rollup of snacks (utc days), last 7 days, for the site's today/yesterday lines.
+export function dailyRollup(): Record<string, { snacks: number; gme: number; burned: number }> {
+  const out: Record<string, { snacks: number; gme: number; burned: number }> = {};
+  for (const p of readArchive()) {
+    if (p.kind !== 'snack') continue; const d = p.ts.slice(0, 10);
+    out[d] ??= { snacks: 0, gme: 0, burned: 0 }; out[d].snacks++; out[d].gme += Number(p.burnGmeSpent || 0); out[d].burned += Number(p.burnedGmerald || 0);
+  }
+  return Object.fromEntries(Object.entries(out).sort().slice(-7));
+}
 const RECENT_SNACKS = 48, RECENT_PRESSES = 12;
 export function readLedger(): Ledger {
   try {

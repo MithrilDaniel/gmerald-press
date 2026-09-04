@@ -11,7 +11,7 @@ import { checkPeg } from './peg.js';
 import { readMarket } from './market.js';
 import { keccak256, encodeAbiParameters } from 'viem';
 import { poolKey } from './v4.js';
-import { appendPress, readLedger, writeLedger, writeStats, burnGmeTotal, statsPath, countKind, hasTx } from './ledger.js';
+import { appendPress, readLedger, writeLedger, writeStats, burnGmeTotal, statsPath, countKind, hasTx, dailyRollup } from './ledger.js';
 import { parseAbiItem } from 'viem';
 import { readFileSync } from 'node:fs';
 import { post } from './telegram.js';
@@ -105,7 +105,7 @@ export async function runPress(): Promise<void> {
         updatedAt: readLedger().presses.at(-1)?.ts ?? null,
         checkedAt: new Date().toISOString(),
         peg: pegOut,
-        cadenceMin: cfg.cadenceMin,
+        cadenceMin: cfg.cadenceMin, days: dailyRollup(),
       });
     }
     console.log(`[press] no PRESS_WALLET_KEY — refreshed the numbers (stash ${stashGme.toFixed(2)} GME) and left. the founder presses by hand.`);
@@ -154,7 +154,7 @@ export async function runPress(): Promise<void> {
         burnedPct: ((Number(TOTAL_SUPPLY - supply) / Number(TOTAL_SUPPLY)) * 100).toFixed(2),
         stashGme: stashGme.toFixed(2), gmeSunk: (stashGme + burnGmeTotal() + Number(cfg.gradSeedGme)).toFixed(2),
         status: `napping until ${cfg.napUntil.slice(11, 16)} utc`, updatedAt: readLedger().presses.at(-1)?.ts ?? null,
-        checkedAt: new Date().toISOString(), peg: pegOut, cadenceMin: cfg.cadenceMin,
+        checkedAt: new Date().toISOString(), peg: pegOut, cadenceMin: cfg.cadenceMin, days: dailyRollup(),
       });
     }
     console.log(`[press] napping until ${cfg.napUntil} — ${fmt(floatBal, 2)} GME waits in the burn wallet.`);
@@ -225,7 +225,7 @@ export async function runPress(): Promise<void> {
         updatedAt: readLedger().presses.at(-1)?.ts ?? null,
         checkedAt: new Date().toISOString(),
         peg: pegOut,
-        cadenceMin: cfg.cadenceMin,
+        cadenceMin: cfg.cadenceMin, days: dailyRollup(),
       });
     }
     console.log('[press] nothing to press — gerald napped (no row, no post).');
@@ -390,7 +390,7 @@ export async function runPress(): Promise<void> {
     checkedAt: entry.ts,
     peg: pegOut,
     curve: curveOut,
-    cadenceMin: cfg.cadenceMin,
+    cadenceMin: cfg.cadenceMin, days: dailyRollup(),
   });
 
   // 7. Say it happened. Both hashes or it didn't.
