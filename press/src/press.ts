@@ -417,7 +417,9 @@ export async function runPress(): Promise<void> {
     stashTx ? `stashed ${entry.stashedGme} GME — ${cfg.explorer}/tx/${stashTx}` : null,
     opsTx ? `ops moved ${entry.opsMovedGme} GME (peg ${entry.pegStatus})` : null,
     note !== 'pressed' ? note.replace('pressed · ', '') : null,
-    `burned: ${burnedPct.toFixed(2)}% of supply · gme sunk: ${gmeSunk.toFixed(2)} · ${remaining >= minPress ? `${slicesLeft} more to go, one every ${cfg.cadenceMin} min` : 'that was the last one until the next claim'}`,
+    `this snack: ${(Number(String(burnedGmerald).replace(/,/g, '')) / 1e7).toFixed(3)}% of supply`,
+    `burned so far: ${burnedPct.toFixed(2)}% of supply, forever`,
+    remaining >= minPress ? `${slicesLeft} more to go, one every ${cfg.cadenceMin} min` : 'that was the last one until the next claim',
   ].filter(Boolean);
   await postMedia(ART.snack, lines.join('\n'));
   if (Math.floor(burnedPct) > Math.floor(prevPct) && prevPct > 0) await postMedia(ART.burn, `${Math.floor(burnedPct)}% of supply is gone. ${burnedPct.toFixed(2)}% exactly, ${gmeSunk.toFixed(0)} gme sunk, never a share sold. gmerald.xyz`);
