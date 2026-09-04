@@ -24,6 +24,7 @@ export async function runLog(): Promise<void> {
     pegStatus: peg.status,
     burnTx: arg('burn-tx') || undefined,
     stashTx: arg('stash-tx') || undefined,
+    gmeUsd: peg.fairUsd && peg.fairUsd > 0 ? peg.fairUsd : undefined,
   });
   let burnedPct = '0.00', stashGme = 0;
   if (cfg.token) {

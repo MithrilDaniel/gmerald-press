@@ -35,7 +35,7 @@ function staleStats(): boolean {
 
 // The stash scanner: every GME transfer into the stash is a press (a claim landing),
 // found by reading the chain, never by a human pasting a hash. Returns how many were new.
-async function scanStash(): Promise<number> {
+async function scanStash(fairUsd?: number): Promise<number> {
   if (!cfg.stash) return 0;
   const ledger = readLedger();
   const latest = await pub.getBlockNumber();
@@ -55,7 +55,7 @@ async function scanStash(): Promise<number> {
       kind: 'press',
       note: `press: ${gme.toFixed(2)} gme claimed from fees and stashed. never sold, never distributed.`,
       burnedGmerald: '0', burnGmeSpent: '0', stashedGme: gme.toFixed(4), opsMovedGme: '0',
-      pegStatus: 'n/a', stashTx: tx,
+      pegStatus: 'n/a', stashTx: tx, gmeUsd: fairUsd && fairUsd > 0 ? fairUsd : undefined,
     });
     await post([`press #${entry.k} \u{1F439}`, `stashed ${gme.toFixed(2)} gme — ${cfg.explorer}/tx/${tx}`, `the stash: ${cfg.explorer}/address/${cfg.stash}`].join('\n'));
     added++;
@@ -85,7 +85,7 @@ export async function runPress(): Promise<void> {
   const bal = (holder: `0x${string}`, asset: `0x${string}`) =>
     pub.readContract({ address: asset, abi: erc20Abi, functionName: 'balanceOf', args: [holder] });
 
-  const newPresses = cfg.dry ? 0 : await scanStash();
+  const newPresses = cfg.dry ? 0 : await scanStash(peg.fairUsd);
   if (newPresses) console.log(`[press] stash scan: ${newPresses} new press(es) logged from the chain`);
   const mustWrite = () => newPresses > 0 || staleStats();
 
@@ -367,6 +367,7 @@ export async function runPress(): Promise<void> {
     burnTx,
     stashTx,
     opsTx,
+    gmeUsd: peg.fairUsd && peg.fairUsd > 0 ? peg.fairUsd : undefined,
   });
 
   const [supply, stashBal] = await Promise.all([

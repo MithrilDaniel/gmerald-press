@@ -18,6 +18,7 @@ export type PressEntry = {
   stashedGme: string;
   opsMovedGme: string;
   pegStatus: string;
+  gmeUsd?: number;   // the stock's fair price (chainlink) when this row was written; cost basis for the stash and the pool
   burnTx?: string;
   stashTx?: string;
   opsTx?: string;
@@ -41,7 +42,17 @@ export type Stats = {
   slicesLeft?: number;
   days?: Record<string, { snacks: number; gme: number; burned: number }>;
   holders?: number;
+  basis?: Basis;
 };
+
+// What the stash and the pool's gme were worth when they arrived, from each row's gmeUsd.
+export type Basis = { stashCostUsd: number; stashAvgUsd: number; fedCostUsd: number; pricedGme: number; totalGme: number };
+export function costBasis(): Basis {
+  let sc = 0, sg = 0, fc = 0, tg = 0;
+  for (const p of readArchive()) { const st = Number(p.stashedGme || 0), fed = Number(p.burnGmeSpent || 0), px = Number(p.gmeUsd || 0); tg += st; if (px > 0) { sc += st * px; sg += st; fc += fed * px; } }
+  const r = (x: number) => Math.round(x * 100) / 100;
+  return { stashCostUsd: r(sc), stashAvgUsd: sg > 0 ? r(sc / sg) : 0, fedCostUsd: r(fc), pricedGme: r(sg), totalGme: r(tg) };
+}
 
 const ledgerPath = () => join(cfg.siteDir, 'press-ledger.json');
 export const statsPath = () => join(cfg.siteDir, "press-stats.json");
@@ -104,7 +115,7 @@ export function appendPress(entry: Omit<PressEntry, 'n' | 'ts' | 'explorer'>): P
 }
 
 export function writeStats(stats: Stats): void {
-  writeFileSync(statsPath(), JSON.stringify(stats, null, 1));
+  writeFileSync(statsPath(), JSON.stringify({ ...stats, basis: costBasis() }, null, 1));
 }
 
 // Cumulative GME the burns pushed into the curve/pool — part of "GME sunk".
