@@ -786,7 +786,7 @@
    "ts": "2026-09-04T12:10:41.434Z",
    "explorer": "https://robinhoodchain.blockscout.com",
    "kind": "snack",
-   "note": "pressed \u00b7 plus 3084571 that was already waiting in the burn wallet",
+   "note": "pressed · plus 3084571 that was already waiting in the burn wallet",
    "burnedGmerald": "3429167",
    "burnGmeSpent": "5.0000",
    "stashedGme": "0.0000",
@@ -872,7 +872,7 @@
    "gmeUsd": 19.4362
   }
  ],
- "stashScanBlock": "54346350",
+ "stashScanBlock": "54354222",
  "totals": {
   "press": 10,
   "snack": 131,
