@@ -6,7 +6,8 @@ export const ART = {
   press: `${KIT}/clips/stash-cheeks-16x9.mp4`, // a claim landing: gerald stuffing his cheeks
   snack: `${KIT}/base-snacks.jpg`,              // one burn slice
   burn: `${KIT}/clips/furnace-7s.mp4`,          // a whole percent of supply gone
-  hello: `${KIT}/clips/hug-7s.mp4`,
+  buy: `${KIT}/base-cookie.jpg`,               // a buy above the floor
+  newHolder: `${KIT}/clips/hug-7s.mp4`,         // a wallet's first $gmerald: welcome to the burrow
 };
 
 async function call(method: string, body: Record<string, unknown>): Promise<boolean> {
