@@ -5,6 +5,7 @@
 import { readFileSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { cfg } from './env.js';
+import { boardSeats } from './holders.js';
 
 export type Kind = 'press' | 'snack';
 export type PressEntry = {
@@ -42,6 +43,7 @@ export type Stats = {
   slicesLeft?: number;
   days?: Record<string, { snacks: number; gme: number; burned: number }>;
   holders?: number;
+  seats?: number;   // board seats: wallets at 250,000 $gmerald or more, infra excluded
   basis?: Basis;
 };
 
@@ -115,7 +117,7 @@ export function appendPress(entry: Omit<PressEntry, 'n' | 'ts' | 'explorer'>): P
 }
 
 export function writeStats(stats: Stats): void {
-  writeFileSync(statsPath(), JSON.stringify({ ...stats, basis: costBasis() }, null, 1));
+  writeFileSync(statsPath(), JSON.stringify({ ...stats, seats: boardSeats(), basis: costBasis() }, null, 1));
 }
 
 // Cumulative GME the burns pushed into the curve/pool — part of "GME sunk".

@@ -72,3 +72,10 @@ export async function readHolders(): Promise<number | undefined> {
   writeFileSync(statePath(), JSON.stringify(st)); console.log(`[holders] ${n} holders · ${scanned} transfers scanned · through block ${st.lastBlock}`);
   return n;
 }
+
+// The board: wallets holding the seat threshold or more, from the last scan. Infra is not a seat.
+const SEAT = 250_000n * 10n ** 18n;
+const NOT_SEATS = new Set(['0x267444d099b10fb5ed7c3cc7b7c767adca574952', '0x8366a39cc670b4001a1121b8f6a443a643e40951', '0x259c3fc3dad6b8e418b44c238c7be65284244e4a', '0x3f6f2e902be8736c0d59aba82d5975f395b9b825', '0xded25195d733d7e4c6377250ad57d062da82bd53']);
+export function boardSeats(): number | undefined {
+  try { const st = JSON.parse(readFileSync(statePath(), 'utf8')) as State; let n = 0; for (const [a, v] of Object.entries(st.balances)) if (!NOT_SEATS.has(a) && BigInt(v) >= SEAT) n++; return n; } catch { return undefined; }
+}
