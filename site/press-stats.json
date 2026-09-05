@@ -1,21 +1,21 @@
 {
  "presses": 14,
- "snacks": 188,
- "queuedGme": "16.6313",
- "sliceGme": "2.00",
- "slicesLeft": 9,
- "burnedPct": "18.51",
+ "snacks": 189,
+ "queuedGme": "11.6313",
+ "sliceGme": "5.00",
+ "slicesLeft": 3,
+ "burnedPct": "18.53",
  "stashGme": "2381.62",
- "gmeSunk": "5444.63",
- "status": "snacking. 9 slices of ~2 gme to go",
- "updatedAt": "2026-09-05T13:33:48.960Z",
- "checkedAt": "2026-09-05T13:33:48.960Z",
+ "gmeSunk": "5449.63",
+ "status": "snacking. 3 slices of ~5 gme to go",
+ "updatedAt": "2026-09-05T13:45:22.602Z",
+ "checkedAt": "2026-09-05T13:45:22.602Z",
  "peg": {
   "status": "at-or-above",
-  "premiumBps": 34,
-  "tokenUsd": 19.260908569647082,
+  "premiumBps": 25,
+  "tokenUsd": 19.242103404372003,
   "fairUsd": 19.195,
-  "note": "token $19.26 (6 pools, weighted by the hour's volume) vs fair $19.20 (chainlink 19:11 utc): +0.34%"
+  "note": "token $19.24 (6 pools, weighted by the hour's volume) vs fair $19.20 (chainlink 19:11 utc): +0.25%"
  },
  "cadenceMin": 15,
  "days": {
@@ -30,9 +30,9 @@
    "burned": 33896036
   },
   "2026-09-05": {
-   "snacks": 31,
-   "gme": 89.9844,
-   "burned": 8522344
+   "snacks": 32,
+   "gme": 94.9844,
+   "burned": 8762958
   }
  },
  "holders": 2736,
@@ -45,7 +45,7 @@
  "basis": {
   "stashCostUsd": 45384.43,
   "stashAvgUsd": 19.06,
-  "fedCostUsd": 51405.42,
+  "fedCostUsd": 51501.4,
   "pricedGme": 2381.62,
   "totalGme": 2381.62
  }
