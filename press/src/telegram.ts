@@ -30,3 +30,14 @@ export async function postMedia(url: string, caption: string): Promise<void> {
   const ok = await call(isVideo ? 'sendAnimation' : 'sendPhoto', { [isVideo ? 'animation' : 'photo']: url, caption: caption.slice(0, 1000) });
   if (!ok) await call('sendMessage', { text: caption, disable_web_page_preview: true });
 }
+
+// A card: the art on top, clean lines under it, the first line bold. Values are escaped, so any text is safe.
+const esc = (t: string) => t.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+export async function postCard(url: string, lines: (string | null | undefined)[]): Promise<void> {
+  const ls = lines.filter((l): l is string => !!l).map(esc); if (!ls.length) return;
+  const html = [`<b>${ls[0]}</b>`, ...ls.slice(1)].join('\n');
+  if (!cfg.tgToken || !cfg.tgChat) { console.log(`[telegram] not configured, would have posted ${url}:\n` + ls.join('\n')); return; }
+  const isVideo = /\.mp4($|\?)/i.test(url);
+  const ok = await call(isVideo ? 'sendAnimation' : 'sendPhoto', { [isVideo ? 'animation' : 'photo']: url, caption: html.slice(0, 1000), parse_mode: 'HTML' });
+  if (!ok) await call('sendMessage', { text: html, parse_mode: 'HTML', disable_web_page_preview: true });
+}

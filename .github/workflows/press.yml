@@ -57,28 +57,15 @@ jobs:
           DIP_BAND_BPS: ${{ vars.DIP_BAND_BPS }}
           QUOTE_SANITY_BPS: ${{ vars.QUOTE_SANITY_BPS }}
           PRESS_WALLET_ADDRESS: ${{ vars.PRESS_WALLET_ADDRESS }}
-      - name: buys (every run, best effort)
-        if: ${{ (inputs.job || 'press') == 'press' }}
-        continue-on-error: true
-        run: npx tsx src/index.ts buys
-        working-directory: press
-        env:
-          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
-          TELEGRAM_CHAT_ID: ${{ vars.TELEGRAM_CHAT_ID }}
-          TOKEN_ADDRESS: ${{ vars.TOKEN_ADDRESS }}
-          RPC_URL_2: ${{ vars.RPC_URL_2 }}
-          PRESS_WALLET_ADDRESS: ${{ vars.PRESS_WALLET_ADDRESS }}
-          MIN_BUY_USD: ${{ vars.MIN_BUY_USD }}
-          BUY_STEP_USD: ${{ vars.BUY_STEP_USD }}
       - name: commit the terminal's numbers
         run: |
           if ! git diff --quiet site/; then
             git config user.name "Daniel Volkov"
             git config user.email "daniel@mithrilslabs.com"
-            git add site/press-ledger.json site/press-ledger-all.json site/press-stats.json site/holders-state.json site/buys-state.json
+            git add site/press-ledger.json site/press-ledger-all.json site/press-stats.json site/holders-state.json
             git commit -m "press: update terminal numbers"
             for i in 1 2 3; do
-              git pull --rebase origin main || { git checkout --theirs -- site/press-ledger.json site/press-ledger-all.json site/press-stats.json site/buys-state.json; git add site/; GIT_EDITOR=true git rebase --continue; }
+              git pull --rebase origin main || { git checkout --theirs -- site/press-ledger.json site/press-ledger-all.json site/press-stats.json; git add site/; GIT_EDITOR=true git rebase --continue; }
               git push && break
               sleep 5
             done

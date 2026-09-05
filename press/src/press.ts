@@ -12,10 +12,10 @@ import { readMarket } from './market.js';
 import { readHolders } from './holders.js';
 import { keccak256, encodeAbiParameters } from 'viem';
 import { poolKey } from './v4.js';
-import { appendPress, readLedger, writeLedger, writeStats, burnGmeTotal, statsPath, countKind, hasTx, dailyRollup } from './ledger.js';
+import { appendPress, readLedger, writeLedger, writeStats, burnGmeTotal, statsPath, countKind, hasTx, dailyRollup, totals } from './ledger.js';
 import { parseAbiItem } from 'viem';
 import { readFileSync } from 'node:fs';
-import { post, postMedia, ART } from './telegram.js';
+import { post, postCard, ART } from './telegram.js';
 
 const fmt = (v: bigint, dp = 2) => Number(formatUnits(v, 18)).toFixed(dp);
 const TOTAL_SUPPLY = 10n ** 27n; // 1,000,000,000 * 1e18, verified on-chain
@@ -66,7 +66,7 @@ async function scanStash(fairUsd?: number): Promise<number> {
       burnedGmerald: '0', burnGmeSpent: '0', stashedGme: gme.toFixed(4), opsMovedGme: '0',
       pegStatus: 'n/a', stashTx: tx, gmeUsd: fairUsd && fairUsd > 0 ? fairUsd : undefined,
     });
-    await postMedia(ART.press, [`press #${entry.k} \u{1F439}`, `stashed ${gme.toFixed(2)} gme — ${cfg.explorer}/tx/${tx}`, fedNote ? fedNote.trim() : null, `the stash: ${cfg.explorer}/address/${cfg.stash}`].filter(Boolean).join('\n'));
+    await postCard(ART.press, [`\u{1F439} press #${entry.k}`, `stashed ${gme.toFixed(2)} gme. never sold, never distributed.`, fedNote ? fedNote.trim() : null, `the stash: ${Math.round(totals().stashedGme).toLocaleString('en-US')} gme`]);
     added++;
   }
   const l2 = readLedger(); l2.stashScanBlock = latest.toString(); writeLedger(l2);
@@ -411,17 +411,17 @@ export async function runPress(): Promise<void> {
   });
 
   // 7. Say it happened. Both hashes or it didn't.
-  const lines = [
-    `snack #${entry.k} \u{1F439}`,
-    burnTx ? `burned ${burnedGmerald} $GMERALD${Number(burnGmeSpent) > 0 ? ` with ${Number(burnGmeSpent).toFixed(2)} gme` : ''} — ${cfg.explorer}/tx/${burnTx}` : null,
-    stashTx ? `stashed ${entry.stashedGme} GME — ${cfg.explorer}/tx/${stashTx}` : null,
-    opsTx ? `ops moved ${entry.opsMovedGme} GME (peg ${entry.pegStatus})` : null,
+  const gone = Number(String(burnedGmerald).replace(/,/g, ''));
+  await postCard(ART.snack, [
+    `\u{1F439} snack #${entry.k}`,
+    burnTx ? `burned ${gone.toLocaleString('en-US')} $gmerald${Number(burnGmeSpent) > 0 ? ` with ${Number(burnGmeSpent).toFixed(2)} gme` : ''}` : null,
+    stashTx ? `stashed ${entry.stashedGme} gme` : null,
+    opsTx ? `ops moved ${entry.opsMovedGme} gme` : null,
     note !== 'pressed' ? note.replace('pressed · ', '') : null,
-    `this snack: ${(Number(String(burnedGmerald).replace(/,/g, '')) / 1e7).toFixed(3)}% of supply`,
+    `this snack: ${(gone / 1e7).toFixed(3)}% of supply`,
     `burned so far: ${burnedPct.toFixed(2)}% of supply, forever`,
     remaining >= minPress ? `${slicesLeft} more to go, one every ${cfg.cadenceMin} min` : 'that was the last one until the next claim',
-  ].filter(Boolean);
-  await postMedia(ART.snack, lines.join('\n'));
-  if (Math.floor(burnedPct) > Math.floor(prevPct) && prevPct > 0) await postMedia(ART.burn, `${Math.floor(burnedPct)}% of supply is gone. ${burnedPct.toFixed(2)}% exactly, bought with fees and burned. never a share sold. gmerald.xyz`);
+  ]);
+  if (Math.floor(burnedPct) > Math.floor(prevPct) && prevPct > 0) await postCard(ART.burn, [`\u{1F525} ${Math.floor(burnedPct)}% of supply is gone.`, `${burnedPct.toFixed(2)}% exactly, bought with fees and burned. never a share sold.`]);
   console.log(`[press] snack #${entry.k} complete.`);
 }
