@@ -67,6 +67,7 @@ export async function runBuys(): Promise<void> {
     if (usd < Number(cfg.minBuyUsd)) continue;
     const tx = await pub.getTransaction({ hash: log.transactionHash });
     const buyer = await buyerOf(log.transactionHash, token, tx.from);
+    if (buyer.toLowerCase() === String(cfg.pressWallet).toLowerCase()) continue; // the machine's own snacks are posted as snacks
     let before = 0; try { before = Number(formatUnits(await pub.readContract({ address: token, abi: erc20, functionName: 'balanceOf', args: [buyer as `0x${string}`], blockNumber: (log.blockNumber ?? latest) - 1n }), 18)); } catch {}
     const after = before + got, fresh = before < 1;
     const mcap = got > 0 && usd > 0 ? (usd / got) * supply : 0;
