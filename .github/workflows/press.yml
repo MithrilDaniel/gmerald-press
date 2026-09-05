@@ -62,10 +62,10 @@ jobs:
           if ! git diff --quiet site/; then
             git config user.name "Daniel Volkov"
             git config user.email "daniel@mithrilslabs.com"
-            git add site/press-ledger.json site/press-ledger-all.json site/press-stats.json site/holders-state.json
+            git add site/press-ledger.json site/press-ledger-all.json site/press-stats.json site/holders-state.json site/gme-rank.json
             git commit -m "press: update terminal numbers"
             for i in 1 2 3; do
-              git pull --rebase origin main || { git checkout --theirs -- site/press-ledger.json site/press-ledger-all.json site/press-stats.json; git add site/; GIT_EDITOR=true git rebase --continue; }
+              git pull --rebase origin main || { git checkout --theirs -- site/press-ledger.json site/press-ledger-all.json site/press-stats.json site/gme-rank.json; git add site/; GIT_EDITOR=true git rebase --continue; }
               git push && break
               sleep 5
             done

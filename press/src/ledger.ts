@@ -6,6 +6,7 @@ import { readFileSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { cfg } from './env.js';
 import { boardSeats } from './holders.js';
+import { readRank, type Rank } from './gmerank.js';
 
 export type Kind = 'press' | 'snack';
 export type PressEntry = {
@@ -44,6 +45,7 @@ export type Stats = {
   days?: Record<string, { snacks: number; gme: number; burned: number }>;
   holders?: number;
   seats?: number;   // board seats: wallets at 250,000 $gmerald or more, infra excluded
+  gmeRank?: Rank;   // where the stash ranks among holders of tokenized gme, pools and protocol contracts excluded
   basis?: Basis;
 };
 
@@ -117,7 +119,7 @@ export function appendPress(entry: Omit<PressEntry, 'n' | 'ts' | 'explorer'>): P
 }
 
 export function writeStats(stats: Stats): void {
-  writeFileSync(statsPath(), JSON.stringify({ ...stats, seats: boardSeats(), basis: costBasis() }, null, 1));
+  writeFileSync(statsPath(), JSON.stringify({ ...stats, seats: boardSeats(), gmeRank: readRank(), basis: costBasis() }, null, 1));
 }
 
 // Cumulative GME the burns pushed into the curve/pool — part of "GME sunk".
