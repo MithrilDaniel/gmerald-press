@@ -7,13 +7,13 @@
  "gmeSunk": "5654.98",
  "status": "napping between claims",
  "updatedAt": "2026-09-06T04:00:30.002Z",
- "checkedAt": "2026-09-06T06:00:24.029Z",
+ "checkedAt": "2026-09-06T07:00:33.091Z",
  "peg": {
   "status": "at-or-above",
-  "premiumBps": 64,
-  "tokenUsd": 19.31803983256497,
+  "premiumBps": 58,
+  "tokenUsd": 19.306918517905757,
   "fairUsd": 19.195,
-  "note": "token $19.32 (5 pools, weighted by the hour's volume) vs fair $19.20 (chainlink 19:11 utc): +0.64%"
+  "note": "token $19.31 (6 pools, weighted by the hour's volume) vs fair $19.20 (chainlink 19:11 utc): +0.58%"
  },
  "cadenceMin": 15,
  "days": {
@@ -42,8 +42,8 @@
  "seats": 225,
  "gmeRank": {
   "rank": 7,
-  "of": 33,
-  "at": "2026-09-06T05:30:37.288Z"
+  "of": 35,
+  "at": "2026-09-06T06:30:32.594Z"
  },
  "basis": {
   "stashCostUsd": 47016.99,
