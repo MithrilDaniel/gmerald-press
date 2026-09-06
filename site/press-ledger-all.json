@@ -3375,6 +3375,36 @@
    "burnTx": "0x94a5045127195d9cc4aec1d8cb510cc0c61adf39b5b47374fcbcfec75b77a22e",
    "gmeUsd": 19.195,
    "k": 206
+  },
+  {
+   "n": 226,
+   "ts": "2026-09-06T12:15:18.934Z",
+   "explorer": "https://robinhoodchain.blockscout.com",
+   "kind": "press",
+   "note": "press: 8.60 gme claimed from fees and stashed. never sold, never distributed. 8.60 gme went to the burn wallet in the same press, for snacks.",
+   "burnedGmerald": "0",
+   "burnGmeSpent": "0",
+   "stashedGme": "8.6000",
+   "opsMovedGme": "0",
+   "pegStatus": "n/a",
+   "stashTx": "0xc1ab3b7728ff5c842bca33fc56a7e7de3626ed5feb73ce3f4f4fb3dec3c425cf",
+   "gmeUsd": 19.195,
+   "k": 20
+  },
+  {
+   "n": 227,
+   "ts": "2026-09-06T12:15:24.411Z",
+   "explorer": "https://robinhoodchain.blockscout.com",
+   "kind": "snack",
+   "note": "pressed",
+   "burnedGmerald": "591466",
+   "burnGmeSpent": "8.6000",
+   "stashedGme": "0.0000",
+   "opsMovedGme": "0.0000",
+   "pegStatus": "at-or-above (+0.59%)",
+   "burnTx": "0x25ff37a1d9477292ce915c0b173d3111a0d2752d4fa6cc6cc7aa8cc610cf0f5c",
+   "gmeUsd": 19.195,
+   "k": 207
   }
  ]
 }
